@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+## Generates Snazzy based themes using themer and base16 yaml. Requires node
+theme_snazzy(){ 
+    mkdir -p "$HOME/.config/bbenzikry/resources/theme/$2"
+    npx --yes -p themer -p "$1" themer --colors "$HOME/.config/bbenzikry/resources/theme/snazzy_base16.yaml" --template $1 --out "$HOME/.config/bbenzikry/resources/theme/$2"
+}
+
+theme_snazzy @themer/hyper hyper
+theme_snazzy @themer/terminal terminal
+theme_snazzy @themer/xcode xcode
+theme_snazzy @themer/chrome chrome
+theme_snazzy @themer/emacs emacs
+theme_snazzy @themer/slack slack
+theme_snazzy @themer/css css
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+#!/usr/bin/env bb
+(require '[clojure.tools.cli :refer [parse-opts summarize]])
+(require '[clojure.set :refer [intersection]])
+(require '[clojure.string :as str])
+
+(defn expand-home [s]
+  (if (.startsWith s "~")
+    (str/replace-first s "~" (System/getProperty "user.home"))
+    s))
+
+(defn file-names [dir] 
+  (->> dir 
+  clojure.java.io/file 
+  file-seq
+  (filter #(.isFile %))
+  (map #(.getName %))
+  ))
+
+(def cli-options
+  [
+   ["-d" "--directory DIR" "Origin dir"
+    :parse-fn #(expand-home %)
+    :validate [string? "Must be a string"]]
+   ["-d1" "--directories DIRS" "directories to intersect files with"
+    :parse-fn #(expand-home %)
+    :validate [string? "Must be a string"]
+    ]
+   ["-h" "--help"]])
+
+(def opts (parse-opts *command-line-args* cli-options))
+
+(let [{:keys [options arguments summary errors]} opts] 
+  (if (or (:help options) errors (not (:directory options)) (not (:directories options))) (println summary)
+      (doseq [w (intersection (set (file-names (:directory options)))
+      (set (flatten (mapv file-names (str/split (:directories options) #","))))
+      )] (println w))))

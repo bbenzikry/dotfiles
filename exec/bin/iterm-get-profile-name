@@ -1,0 +1,10 @@
+#!/usr/bin/env iterm-python
+import iterm2
+import sys
+async def main(connection):
+    app = await iterm2.async_get_app(connection)
+    session=app.current_terminal_window.current_tab.current_session
+    profile=await session.async_get_profile()
+    print(profile.name)
+
+iterm2.run_until_complete(main)

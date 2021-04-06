@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  test: 
+    cmds: 
+      - bash tests/bash.sh
+  install-packages:
+    cmds:
+      - packages/install.zsh
+    silent: false

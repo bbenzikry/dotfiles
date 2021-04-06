@@ -1,0 +1,1 @@
+export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"

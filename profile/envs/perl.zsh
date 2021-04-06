@@ -1,0 +1,1 @@
+export PERL_LOCAL_LIB_ROOT="$XDG_DATA_HOME/perl5"

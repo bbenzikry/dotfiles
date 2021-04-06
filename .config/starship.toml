@@ -1,0 +1,114 @@
+command_timeout = 1000 # We want this because asdf hooks are really slow sometimes.
+add_newline = false
+# format = """
+# [╭─](white)$username$hostname in $directory$package$java$python$git_branch$battery$cmd_duration
+# [╰─](white)$character """
+
+
+format = """
+$battery 
+[╭─](white)$username$hostname in $directory$package$terraform$golang$rust$nodejs$java$python$conda$scala$aws$custom
+[│](white)  $git_branch$git_commit$git_state$git_status$hg_branch
+[│](white)  $status$cmd_duration
+[╰─](white)$time$character
+"""
+
+# TODO:$gcloud
+
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = " "
+style = "bold dimmed green"
+
+[hostname]
+ssh_only = true
+format =  "on [$hostname](bold red)"
+# trim_at = ".companyname.com"
+disabled = false
+
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "🔌 "
+discharging_symbol = "⚡ "
+
+[[battery.display]]
+threshold = 100
+style = "bold red"
+
+[package]
+display_private = true
+
+[custom.docker]
+description = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.{yml,yaml} files"
+command = "echo 🐳"
+files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
+when = """ command -v docker &> /dev/null; exit (echo $?); """
+format = "with [$output]($style) "
+
+# TODO: hist type
+# [custom.history_type]
+# description = "Shows whether history is global or per directory"
+# command = ""
+# when = ""
+# format = ""
+
+
+[character]
+success_symbol = "[](bold green)"
+# success_symbol = "[](bold green)"
+error_symbol = "[❌](bold red) "
+
+
+[golang]
+symbol = " "
+
+[java]
+symbol = " "
+
+[python]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[directory]
+read_only = " "
+truncation_length = 8
+truncation_symbol = "…/"
+format = "[$read_only]($read_only_style)[$path]($style) "
+disabled = false
+
+[cmd_duration]
+min_time=500
+show_milliseconds = true
+style = "bold yellow"
+format = "took [$duration]($style)"
+
+[shell]
+fish_indicator = ""
+powershell_indicator = "_"
+disabled = false
+
+
+[git_status]
+format='([$all_status$ahead_behind]($style) )'	
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = " 🤷 \\(${count}\\) "
+stashed = "📦 \\(${count}\\)(blue) " 
+modified = "[  \\(${count}\\) ](yellow bold)"
+staged = '[++$count](green)'
+deleted = "🗑 $count"
+
+
+[time]
+disabled = false
+format = '🕙  [$time]($style) '
+
+[status]
+disabled = false
+format="[$symbol $status]($style) "

@@ -1,0 +1,15 @@
+# Adds simple functionalities to the REPL. 
+# This does not implement InteractiveConsole 
+# as we assume we're running in ptpython
+import os
+import sys
+import importlib
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
+
+
+def reimport(module_name):
+    """
+    re imports a module.
+    """
+    importlib.reload(sys.modules[module_name])

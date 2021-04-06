@@ -1,0 +1,27 @@
+golang.org/x/tools/gopls@latest
+github.com/go-delve/delve/cmd/dlv@latest // debugging
+github.com/cweill/gotests // testing
+github.com/Dreamacro/clash
+github.com/bbenzikry/image2ascii
+golang.org/x/mobile/cmd/gomobile
+github.com/moby/tool/cmd/moby
+github.com/linuxkit/linuxkit/src/cmd/linuxkit
+github.com/Ice3man543/hawkeye
+github.com/virtual-kubelet/virtual-kubelet
+google.golang.org/grpc
+github.com/rogpeppe/godef
+golang.org/x/tools/cmd/guru
+golang.org/x/tools/cmd/gorename
+golang.org/x/tools/cmd/goimports
+github.com/zmb3/gogetdoc
+//github.com/haya14busa/gopkgs/cmd/gopkgs
+github.com/davidrjenni/reftools/cmd/fillstruct
+github.com/josharian/impl
+github.com/godoctor/godoctor
+github.com/fatih/gomodifytags
+github.com/sourcegraph/go-langserver
+//github.com/segmentio/chamber
+github.com/kisielk/godepgraph
+github.com/schollz/croc/v8
+github.com/motemen/gore/cmd/gore // repl
+cuelang.org/go/cmd/cue@latest

@@ -1,0 +1,23 @@
+; EditorConfig is awesome: http://EditorConfig.org
+
+; top-most EditorConfig file
+root = true
+
+; Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+indent_size = 2
+indent_style = space
+    
+[.gitconfig]
+indent_style = tab
+
+[*.ini]
+indent_size = 4
+
+[*.py]
+indent_size = 4
+

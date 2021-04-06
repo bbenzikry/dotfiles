@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# curl/curlie over tor
+if pgrep -f /usr/bin/tor >/dev/null; then
+	curl --socks5-hostname localhost:9050 "$@"
+else
+	echo "Error: tor is not running" 1>&2
+fi
+# vi:ft=sh

@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require 'digest'
+require 'net/http'
+
+password = ARGV[0] || 'Password'
+hashed_password = Digest::SHA1.hexdigest password
+
+# SHA1 hashes will be 40 characters long
+prefix = hashed_password[0, 5].to_s.upcase  # Get the first 5 characters
+suffix = hashed_password[5..-1].to_s.upcase # Get the remaining 35 characters
+
+puts "checking pwnedpasswords.com for: #{password}"
+uri = URI("https://api.pwnedpasswords.com/range/#{prefix}")
+res = Net::HTTP.get(uri)
+
+puts res.split("\n").find { |pwned_password|
+  pwned_password.start_with? suffix
+}

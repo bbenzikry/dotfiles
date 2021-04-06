@@ -1,0 +1,1 @@
+export WAPM_PACKAGES="$HOME/code/wapm"

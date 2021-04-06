@@ -1,0 +1,216 @@
+#!/usr/bin/env sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+
+
+#   ████████           ██     ██   ██
+#  ██░░░░░░           ░██    ░██  ░░            █████
+# ░██         █████  ██████ ██████ ██ ███████  ██░░░██  ██████
+# ░█████████ ██░░░██░░░██░ ░░░██░ ░██░░██░░░██░██  ░██ ██░░░░
+# ░░░░░░░░██░███████  ░██    ░██  ░██ ░██  ░██░░██████░░█████
+#        ░██░██░░░░   ░██    ░██  ░██ ░██  ░██ ░░░░░██ ░░░░░██
+#  ████████ ░░██████  ░░██   ░░██ ░██ ███  ░██  █████  ██████
+# ░░░░░░░░   ░░░░░░    ░░     ░░  ░░ ░░░   ░░  ░░░░░  ░░░░░░
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+alias yc='yabai -m config'
+alias yr='yabai -m rule --add'
+alias ys='yabai -m space'
+
+
+#  ██████████ ██  ██ ██
+# ░░░░░██░░░ ░░  ░██░░            █████
+#     ░██     ██ ░██ ██ ███████  ██░░░██
+#     ░██    ░██ ░██░██░░██░░░██░██  ░██
+#     ░██    ░██ ░██░██ ░██  ░██░░██████
+#     ░██    ░██ ░██░██ ░██  ░██ ░░░░░██
+#     ░██    ░██ ███░██ ███  ░██  █████
+#     ░░     ░░ ░░░ ░░ ░░░   ░░  ░░░░░
+
+yc mouse_follows_focus          off
+yc focus_follows_mouse          off
+# yc window_placement             second_child
+yc window_placement             first_child
+yc window_topmost               off
+yc window_shadow                on
+yc window_opacity               on
+yc window_opacity_duration      0.0
+yc active_window_opacity        1.0
+yc normal_window_opacity        0.8
+yc split_ratio                  0.50
+yc auto_balance                 off
+
+yc layout                       bsp
+yc top_padding                     12
+yc bottom_padding                  12
+yc left_padding                    48
+yc right_padding                   48
+yc window_gap                      12
+
+
+#  ██████                        ██
+# ░█░░░░██                      ░██
+# ░█   ░██   ██████  ██████     ░██  █████  ██████
+# ░██████   ██░░░░██░░██░░█  ██████ ██░░░██░░██░░█
+# ░█░░░░ ██░██   ░██ ░██ ░  ██░░░██░███████ ░██ ░
+# ░█    ░██░██   ░██ ░██   ░██  ░██░██░░░░  ░██
+# ░███████ ░░██████ ░███   ░░██████░░██████░███
+# ░░░░░░░   ░░░░░░  ░░░     ░░░░░░  ░░░░░░ ░░░
+
+yc window_border                on
+yc window_border_width          06
+yc active_window_border_color   0xff5af78e
+yc normal_window_border_color   0x26ff5c57
+yc insert_feedback_color        0xffd75f5f
+
+
+#  ████     ████               ██ ██   ████ ██
+# ░██░██   ██░██              ░██░░   ░██░ ░░
+# ░██░░██ ██ ░██  ██████      ░██ ██ ██████ ██  █████  ██████  ██████
+# ░██ ░░███  ░██ ██░░░░██  ██████░██░░░██░ ░██ ██░░░██░░██░░█ ██░░░░
+# ░██  ░░█   ░██░██   ░██ ██░░░██░██  ░██  ░██░███████ ░██ ░ ░░█████
+# ░██   ░    ░██░██   ░██░██  ░██░██  ░██  ░██░██░░░░  ░██    ░░░░░██
+# ░██        ░██░░██████ ░░██████░██  ░██  ░██░░██████░███    ██████
+# ░░         ░░  ░░░░░░   ░░░░░░ ░░   ░░   ░░  ░░░░░░ ░░░    ░░░░░░
+
+yc mouse_modifier               fn
+yc mouse_action1                move
+yc mouse_action2                resize
+yc mouse_drop_action            swap
+
+#   ████████
+#  ██░░░░░░  ██████
+# ░██       ░██░░░██  ██████    █████   █████   ██████
+# ░█████████░██  ░██ ░░░░░░██  ██░░░██ ██░░░██ ██░░░░
+# ░░░░░░░░██░██████   ███████ ░██  ░░ ░███████░░█████
+#        ░██░██░░░   ██░░░░██ ░██   ██░██░░░░  ░░░░░██
+#  ████████ ░██     ░░████████░░█████ ░░██████ ██████
+# ░░░░░░░░  ░░       ░░░░░░░░  ░░░░░   ░░░░░░ ░░░░░░
+
+
+# Create spaces
+
+
+create_all_spaces(){
+yabai -m query --spaces | jq ".[].index" | xargs -I{} yabai -m space --destroy {}
+ys --create
+ys --create
+ys --create
+ys --create
+ys --create
+ys --create
+}
+
+yabai -m query --spaces | jq -e "length < 7" && create_all_spaces
+
+# Space labels
+ys 1 --label "Browsing"
+ys 2 --label "Dev"
+ys 3 --label "Tools"
+ys 4 --label "Design"
+ys 5 --label "Float"
+ys 6 --label "Music"
+ys 7 --label "Communication"
+yc --space 5 layout float
+
+# focus first
+yabai -m space --focus first
+
+yr app='^(Google Chrome.*|Firefox.*)$' space=1
+yr app='^(Terminal|iTerm2|Kitty|Code|Code - Insiders)$' space=2
+yr app='^(Bloom RPC)' space=3
+yr app='^(Sketch|Skitch)' space=4
+yr app="^(Spotify|Amazon Music)$" space=6
+yr app="^(Slack|WhatsApp|Microsoft Teams|Gitter|zoom.us)$" space=7
+
+
+
+#  ███████            ██
+# ░██░░░░██          ░██
+# ░██   ░██  ██   ██ ░██  █████   ██████
+# ░███████  ░██  ░██ ░██ ██░░░██ ██░░░░
+# ░██░░░██  ░██  ░██ ░██░███████░░█████
+# ░██  ░░██ ░██  ░██ ░██░██░░░░  ░░░░░██
+# ░██   ░░██░░██████ ███░░██████ ██████
+# ░░     ░░  ░░░░░░ ░░░  ░░░░░░ ░░░░░░
+
+# Unmanaged floats
+yr title='^Preferences$'         manage=off layer=above border=off
+yr title='^Software Update$'     manage=off layer=above border=off
+yr title='Updating '             manage=off layer=above border=off
+yr app='Finder$'                 manage=off layer=above border=off
+yr app='Activity Monitor$'       manage=off layer=above border=off
+yr app='^Installer$'             manage=off layer=above border=off
+yr app='^System Preferences$'    manage=off layer=above border=off
+yr app='^EndpointConnect$'       manage=off layer=above border=off
+yr app='^Contexts$'              manage=off layer=above border=off
+yr app='^Activity Monitor$'      manage=off layer=above border=off
+yr app='^Beyond Compare$'        manage=off border=off
+yr app='^Photo Mechanic Plus$'   manage=off border=off
+yr app='^ColorSlurp$'            manage=off border=off
+yr app='^zoom.us$'               border=off
+yr title='^Slack \| mini panel$' manage=off layer=above border=off
+
+yr app='iTerm2' title='Preferences' manage=off border=off opacity=1 topmost=on
+yr app='iTerm2' title='/' manage=off border=off opacity=1 topmost=on
+
+# yr app='^Microsoft Outlook' title=' Reminder$' manage=off layer=above border=off
+# yr app='^Microsoft Outlook' border=off
+
+# yr app='^Marked 2$' title='^Updating' manage=off layer=above border=off
+# yr app='^Marked 2$'         manage=off layer=above grid=1:2:1:0:1:1
+
+yr app='^Dictionary$'       manage=off layer=above grid=24:24:15:1:8:14
+yr app='^Preview$'          manage=off layer=above grid=1:2:1:0:1:1
+yr app='^Dash$'             manage=off layer=above grid=1:2:1:0:1:1
+yr app='^Docker$'           manage=off layer=above border=off
+yr app='^Docker Desktop$'   manage=off layer=above border=off grid=4:4:1:1:2:2
+yr app='^TablePlus$'        manage=off layer=above
+yr app='^App Store$'        manage=off grid=24:24:1:1:22:22
+yr app='^Transmission$'     manage=off grid=4:4:1:1:2:2
+yr app='^Keychain Access$'  manage=off grid=4:4:1:1:2:2
+yr app='^Notes$'  manage=off grid=4:4:1:1:2:2
+yr app='^OpenVPN Connect$'  manage=off grid=4:4:1:1:2:2
+
+# yr app='^Code$'             manage=off # grid=24:24:1:1:22:22
+# yr app='^Mast$'             manage=off grid=24:24:1:1:22:22
+# yr app='^Harvest$'          manage=off grid=24:24:1:1:22:22
+# yr app='^ScreenFlow 9$'     manage=off grid=24:24:1:1:22:22
+# yr app='^Cisco Webex'       manage=off grid=4:4:1:1:2:2
+
+
+#### Übersicht simple-bar support 
+
+yc external_bar all:28:0
+# Refresh spaces widget on space change
+yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh spaces widget on display focus change
+yabai -m signal --add event=display_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh spaces widget on window resize
+yabai -m signal --add event=window_resized action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh process widget on space change
+yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Refresh process widget on when focused application changes
+yabai -m signal --add event=window_focused action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Refresh spaces widget on when focused application changes
+yabai -m signal --add event=window_focused action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh process widget on when focused application changes
+yabai -m signal --add event=application_front_switched action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Refresh spaces widget on when focused application changes
+yabai -m signal --add event=application_front_switched action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh process widget on when an application window is closed
+yabai -m signal --add event=window_destroyed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Refresh spaces widget on when an application window is closed
+yabai -m signal --add event=window_destroyed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh process widget when current window title changes
+yabai -m signal --add event=window_title_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-process-jsx\"'"

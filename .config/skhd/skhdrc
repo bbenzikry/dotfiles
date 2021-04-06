@@ -1,0 +1,128 @@
+# Reload yabai
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+# Application Shortcuts
+ctrl + fn - f : open ~
+ctrl + fn - t : open -na /Applications/iTerm2.app
+ctrl + fn - p : open -na /Application/Kitty.app
+ctrl + fn - s : open "x-apple.systempreferences:"
+ctrl + fn - a : open -a "About This Mac"
+ctrl + fn - c : open -na /Applications/Google\ Chrome.app
+ctrl + fn - c : open -na /Applications/Google\ Chrome\ Canary.app
+ctrl + fn - v : open -na /Applications/Visual\ Studio\ Code\ -\ Insiders.app
+ctrl + fn - l : open -na /Applications/Slack.app
+
+
+
+# General layout
+ctrl + alt - a : yabai -m config layout bsp
+ctrl + alt - s : yabai -m config layout float
+
+# Stacking 
+## switch between BSP and stack mode
+ctrl + shift - space : yabai -m space --layout "$(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')"
+
+### DEFAULTS
+# # Focus items in stack
+# alt + p: yabai -m window --focus stack.prev
+# alt - n: yabai -m window --focus stack.next
+# alt - f: yabai -m window --focus stack.first
+# alt - g: yabai -m window --focus stack.last
+
+# # Focus in BSP
+# alt - h: yabai -m window --focus west
+# alt - j: yabai -m window --focus south
+# alt - k: yabai -m window --focus north
+# alt - l: yabai -m window --focus east
+
+
+## Cycle through with ctrl + shift right / left, regardless of BSP or stack mode 
+# forward
+ctrl + shift - right : yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
+  | xargs -I{} yabai -m window --focus {}
+
+# backward
+ctrl + shift - left: yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+  | xargs -I{} yabai -m window --focus {}
+
+
+
+## Spaces 
+ctrl - left : yabai -m space --focus prev
+ctrl - right : yabai -m space --focus next
+ctrl - z : yabai -m space --focus recent
+ctrl - 1 : yabai -m space --focus 1
+ctrl - 2 : yabai -m space --focus 2
+ctrl - 3 : yabai -m space --focus 3
+ctrl - 4 : yabai -m space --focus 4
+ctrl - 5 : yabai -m space --focus 5
+ctrl - 6 : yabai -m space --focus 6
+ctrl - 7 : yabai -m space --focus 7
+ctrl - 8 : yabai -m space --focus 8
+ctrl - 9 : yabai -m space --focus 9
+ctrl - 0 : yabai -m space --focus 10 
+
+## Move windows to spaces
+ctrl + shift - 1 : yabai -m window --space  1; yabai -m space --focus 1
+ctrl + shift - 2 : yabai -m window --space  2; yabai -m space --focus 2
+ctrl + shift - 3 : yabai -m window --space  3; yabai -m space --focus 3
+ctrl + shift - 4 : yabai -m window --space  4; yabai -m space --focus 4
+ctrl + shift - 5 : yabai -m window --space  5; yabai -m space --focus 5
+ctrl + shift - 6 : yabai -m window --space  6; yabai -m space --focus 6
+ctrl + shift - 7 : yabai -m window --space  7; yabai -m space --focus 7
+ctrl + shift - 8 : yabai -m window --space  8; yabai -m space --focus 8
+ctrl + shift - 9 : yabai -m window --space  9; yabai -m space --focus 9
+ctrl + shift - 0 : yabai -m window --space 10; yabai -m space --focus 10
+
+# TODO: move to spaces without focus
+
+# create desktop, move window and follow focus (requires jq)
+cmd + alt - n : yabai -m space --create && \
+                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                yabai -m window --space "${index}" && \
+                yabai -m space --focus "${index}"
+
+# create desktop and follow focus (requires jq)
+shift + cmd - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m space --focus "${index}"
+
+shift + cmd - w : yabai -m space --destroy
+
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+
+# mirror tree y-axis
+alt - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+alt - x : yabai -m space --mirror x-axis
+
+
+# toggle desktop offset
+alt - b : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# toggle window parent zoom
+alt - z : yabai -m window --toggle zoom-parent
+
+
+# make floating window fill screen
+# shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
+
+## Border
+
+# toggle window border
+shift + alt - b : yabai -m window --toggle border
+
+
+.blacklist [
+    "google chrome"
+    "google chrome canary"
+    "firefox"
+]

@@ -1,0 +1,65 @@
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+.zsh_*
+.zsh_*
+.zsh-*
+# Thumbnail cache files
+._*
+Thumbs.db
+.bash_history
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Always-ignore extensions
+*~
+*.diff
+*.err
+*.log
+*.orig
+*.pyc
+*.rej
+*.sass-cache
+*.sw?
+*.vi
+*.out
+
+# node
+node_modules
+
+# vagrant
+.vagrant
+
+# vscode cache 
+vscode*/workspaceStorage
+vscode*/globalStorage
+
+# Installation mark
+.installed
+
+references/
+
+# Remove itself from git - see: https://www.atlassian.com/git/tutorials/dotfiles
+dotfiles/
+.parallel
+.docker
+.conda
+.aws
+.asdf
+.gunpg
+.cache
+*.local
+# zsh stuff
+.zcompdump*
+/.zcompacache/*
+# private
+.gnupg/
+.ssh/
+.vscode-insiders/
+
+# vim
+.viminfo
+.lesshst
+

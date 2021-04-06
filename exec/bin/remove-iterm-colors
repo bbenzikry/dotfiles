@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# There was a day where I have too many color schemes in iTerm2 and I want to remove them all.
+# iTerm2 doesn't have "bulk remove" and it was literally painful to delete them one-by-one.
+
+# iTerm2 save it's preference in ~/Library/Preferences/com.googlecode.iterm2.plist in a binary format
+# What you need to do is basically copy that somewhere, convert to xml and remove color schemes in the xml files.
+
+cd /tmp/
+cp ~/iterm2/com.googlecode.iterm2.plist .
+plutil -convert xml1 com.googlecode.iterm2.plist
+
+# Now remove the color schemes in the <key> and <dict> tags,
+# to make it easier, record a macro in vi to remove the key (e.g: Desert/Solarized) using `dd`,
+# and then remove its color dict with `dat` (delete around tag), and repeat the macro until
+# all color schemes you want to delete is gone.
+
+# backup the plist file just in case
+cp com.googlecode.iterm2.plist com.googlecode.iterm2.plist.bkp
+
+# remove the tags
+python - << EOF
+#!/usr/bin/env python3
+import xml.etree.ElementTree as et
+path = "com.googlecode.iterm2.plist"
+tree = et.parse(path)
+root = tree.getroot()
+dict_element = root.find("dict")
+found_custom_color_presets = False
+for child in dict_element:
+    if found_custom_color_presets:
+        dict_element = child
+        break
+    elif child.tag == "key" and child.text == "Custom Color Presets":
+        found_custom_color_presets = True
+to_remove = list()
+next_is_dict_to_remove = False
+for child in dict_element:
+    if next_is_dict_to_remove:
+        to_remove.append(child)
+        next_is_dict_to_remove = False
+    elif child.tag == "key" and child.text.startswith("base16"):
+        to_remove.append(child)
+        next_is_dict_to_remove = True
+for child in to_remove:
+    dict_element.remove(child)
+with open("com.googlecode.iterm2.plist", "w") as f:
+    f.write(et.tostring(root).decode())
+
+EOF
+
+cp com.googlecode.iterm2.plist ~/iterm2/
+
+# Note that iTerm2 has 'fallback' configuration in case something is wrong,
+# You might want to remove them as well:
+
+rm -f ~/Library/Preferences/iTerm2.plist
+rm -f ~/Library/Preferences/net.sourceforge.iTerm.plist
+
+# Now reload the configuration
+
+cd ~/iterm2
+defaults read com.googlecode.iterm2
+
+# Restart iTerm, and check the color-scheme list in the Preferences menu, you shouldn't see the old color-schemes now.

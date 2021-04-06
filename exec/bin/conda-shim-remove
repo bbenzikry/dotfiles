@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# remove unneeded shims created by ASDF for conda
+# list taken from pyenv
+cat ~/$XDG_CONFIG_HOME/asdf/shimremove/full.shim.list | xargs -I{} rm ~/$XDG_CONFIG_HOME/asdf/shims/{} >/dev/null 2>&1

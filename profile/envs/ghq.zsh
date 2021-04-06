@@ -1,0 +1,1 @@
+export GHQ_ROOT="$CODE_ROOT/ghq"

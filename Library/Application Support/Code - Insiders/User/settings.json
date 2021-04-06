@@ -1,0 +1,117 @@
+{
+    "workbench.startupEditor": "none",
+    "go.useLanguageServer": true,
+    "python.languageServer": "Pylance",
+    "jupyter.sendSelectionToInteractiveWindow": false,
+    "rust-client.engine": "rust-analyzer",
+    "better-comments.tags": [
+        {
+            "tag": "note",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": true,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "editor.formatOnSave": true,
+    "editor.fontLigatures": true,
+    // "editor.fontFamily": "FantasqueSansMono Nerd Font Mono",
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontSize": 14,
+    "breadcrumbs.enabled": true,
+    "terminal.integrated.fontSize": 18,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false,
+        "javascript": true,
+        "markdown": true
+    },
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+    "go.formatTool": "gofmt",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.validate.enable": false,
+    "javascript.validate.enable": false,
+    "files.associations": {
+        ".spacemacs": "lisp",
+        ".lintstagedrc": "jsonc",
+        "*.rethinkdb": "rethinkdb"
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.settings.editor": "json",
+    "workbench.colorTheme": "Snazzy Operator",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+    },
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "printEngine": "pprint",
+        "width": 120,
+        "maxLength": 50
+    },
+    "tabnine.experimentalAutoImports": true,
+    "calva.paredit.defaultKeyMap": "strict",
+    "window.zoomLevel": -1
+}
