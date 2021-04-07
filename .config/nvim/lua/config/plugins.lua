@@ -152,25 +152,37 @@ function plugin_list(use, use_rocks)
         config = function()
             require'config.plugins.telescope'.config()
         end,
-        requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'tami5/sql.nvim', {
-            'nvim-telescope/telescope-arecibo.nvim',
+        requires = {
+            'nvim-lua/popup.nvim',
+            'nvim-lua/plenary.nvim',
+            'tami5/sql.nvim',
+            {
+                'nvim-telescope/telescope-arecibo.nvim',
+                config = function()
+                    require('telescope').load_extension('arecibo')
+                end,
+                after = 'telescope.nvim'
+            },
+            {
+                'nvim-telescope/telescope-github.nvim',
+                config = function()
+                    require('telescope').load_extension('gh')
+                end,
+                after = 'telescope.nvim'
+            },
+            {
+                'nvim-telescope/telescope-project.nvim',
+                config = function()
+                    require('telescope').load_extension('project')
+                end,
+                after = 'telescope.nvim'
+            },
+            'nvim-telescope/telescope-cheat.nvim',
             config = function()
-                require('telescope').load_extension('arecibo')
+                require'telescope'.load_extension("cheat")
             end,
             after = 'telescope.nvim'
-        }, {
-            'nvim-telescope/telescope-github.nvim',
-            config = function()
-                require('telescope').load_extension('gh')
-            end,
-            after = 'telescope.nvim'
-        }, {
-            'nvim-telescope/telescope-project.nvim',
-            config = function()
-                require('telescope').load_extension('project')
-            end,
-            after = 'telescope.nvim'
-        }}
+        }
     }
 
     -- TODO: search support

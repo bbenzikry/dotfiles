@@ -21,7 +21,7 @@ setopt AUTO_PARAM_SLASH               # implicit "cd" if the command is a path
 
 
 # Files
-# setopt NOCLOBBER                     # Don’t overwrite existing files with '>' but uses '>!' instead
+# setopt NOCLOBBER                   # Don’t overwrite existing files with '>' but uses '>!' instead
 setopt RM_STAR_WAIT                  # Prompt for confirmation after 'rm *'-ish commands to avoid accidentally wiping out directories
 
 # Completion
@@ -39,11 +39,12 @@ setopt GLOBDOTS                       # Glob dotfiles
 # History
 setopt APPEND_HISTORY                 # append instead of overwrite file
 setopt EXTENDED_HISTORY               # extended timestamps
-# setopt HIST_IGNORE_DUPS
-# setopt HIST_IGNORE_SPACE              # omit from history if space prefixed
-setopt HIST_REDUCE_BLANKS
-# setopt HIST_VERIFY                    # verify when using history cmds/params -- disabled so we can !!
-# unsetopt SHARE_HISTORY                # Disable sharing history between different zsh sessions
+setopt HIST_IGNORE_DUPS               # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_SPACE              # omit from history if space prefixed
+setopt HIST_REDUCE_BLANKS             # Remove superfluous blanks before recording entry.
+setopt INC_APPEND_HISTORY             # Write to the history file immediately, not when the shell exits
+# setopt HIST_VERIFY                  # verify when using history cmds/params -- disabled so we can !!
+# unsetopt SHARE_HISTORY              # Disable sharing history between different zsh sessions
  
 setopt ALIASES                        # autocomplete switches for aliases
 # setopt COMPLETE_ALIASES

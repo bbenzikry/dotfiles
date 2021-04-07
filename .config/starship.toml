@@ -33,9 +33,9 @@ full_symbol = "🔋 "
 charging_symbol = "🔌 "
 discharging_symbol = "⚡ "
 
-[[battery.display]]
-threshold = 100
-style = "bold red"
+# [[battery.display]]
+# threshold = 100
+# style = "bold red"
 
 [package]
 display_private = true
@@ -57,8 +57,7 @@ format = "with [$output]($style) "
 
 [character]
 success_symbol = "[](bold green)"
-# success_symbol = "[](bold green)"
-error_symbol = "[❌](bold red) "
+error_symbol = "[](bold red)"
 
 
 [golang]
@@ -112,3 +111,6 @@ format = '🕙  [$time]($style) '
 [status]
 disabled = false
 format="[$symbol $status]($style) "
+
+
+# See issue with %{%G<CHARACTER>%}

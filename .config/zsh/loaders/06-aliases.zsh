@@ -158,6 +158,13 @@ alias fixterm='stty sane'
 alias profilevim='vim-startuptime -vimpath nvim'
 alias zshtrace='zsh -x 2>zsh.trace'
 
+# This is helpful when a prompt screws up autocompletion etc. and we want to easily debug the issue
+defaultprompt() { 
+    PROMPT="%n@%m %1~ %#"
+}
+
+
+
 
 ## zinit alias pollution
 unalias zini zplg
