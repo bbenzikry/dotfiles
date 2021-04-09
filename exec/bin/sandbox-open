@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+REPO=""
+BRANCH=""
+if git rev-parse --git-dir > /dev/null 2>&1; 
+then
+    _repo=$(git config --get remote.origin.url)
+    if [[ "$_repo" != "*github*"]]; 
+    then
+        echo "Not a github repository" >&2
+        exit 1
+    fi
+    REPO=$(sed -E 's/.*[\/:]+(.*)\/(.*)/\1\/\2/')
+    BRANCH=$(git branch --show-current)
+    BRANCH="/tree/$BRANCH"
+else
+    if [ "$#" -ne 2 ]; then
+    echo "Please use vsonline-open REPO_NAME BRANCH_NAME or run from within a repository" >&2
+    fi
+    REPO=$1
+    BRANCH=$2
+fi
+
+open "https://githubbox.com/$REPO/$BRANCH"

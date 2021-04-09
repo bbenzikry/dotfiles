@@ -451,6 +451,10 @@ function plugin_list(use, use_rocks)
 
     -- Lua dev scratchpad
     -- use 'bfredl/nvim-luadev'
+
+    -- lua/nvim DAP support
+    use 'jbyuki/lua-debug.nvim'
+
     use {
         "rafcamlet/nvim-luapad",
         cmd = "Luapad",
