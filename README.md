@@ -35,7 +35,6 @@
 * [iTerm2](https://iterm2.com) with [FiraCode nerd font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) and selected color schemes
 * tmux
 * [fzf](https://github.com/junegunn/fzf) for all kinds of fuzzy fun
-<!-- * [mcfly](https://github.com/cantino/mcfly) for smarter history search -->
 * [Starship prompt](https://starship.rs)
 * [yabai](https://github.com/koekeishiya/yabai) as a tiling manager
 * [Übersicht](http://tracesof.net/uebersicht/) for desktop widgets
@@ -106,3 +105,5 @@ task install-packages # Installs ASDF global languages, python global tooling ( 
 * default packages for rust, dotnet and go are pending PRs to individual asdf repos
 * any ASCII art used is probably generated with figlet
 * If you experience slow prompt load and keep settings related to asdf and java, precmd hooks used in the asdf java plugin are the culprit. you can remove the precmd or comment it out ( probably at ``~/.local/share/asdf/plugins/java/set-java-home.zsh``)
+* See [nvim config](./.config/nvim) for faq on my configuration
+
