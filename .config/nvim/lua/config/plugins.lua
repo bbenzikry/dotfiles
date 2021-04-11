@@ -18,7 +18,8 @@ function plugin_list(use, use_rocks)
         opt = true
     }
 
-    -- use_rocks {"penlight", "lua-resty-http", "lua-cjson"}
+    -- use_rocks {"lua-resty-http"}
+    -- use_rocks {"lua-cjson"}
 
     -- TODO:
     -- use {
@@ -145,7 +146,13 @@ function plugin_list(use, use_rocks)
     -- Main finder
     use {
         'nvim-telescope/telescope.nvim',
-        rocks = {"openssl", "lua-http-parser"},
+        rocks = {{
+            "openssl",
+            env = {
+                -- Take brew version
+                OPENSSL_DIR = '/usr/local/opt/openssl@1.1'
+            }
+        }, "lua-http-parser"},
         setup = function()
             require'config.plugins.telescope'.setup()
         end,
@@ -358,6 +365,7 @@ function plugin_list(use, use_rocks)
 
     use {
         'neovim/nvim-lspconfig',
+        rocks = {'penlight'},
         -- Seems to screw up certain load states, look into that
         -- event = {'BufRead *'}
         setup = function()
@@ -447,7 +455,9 @@ function plugin_list(use, use_rocks)
     -- ░██      ░██  ░██ ██░░░░██
     -- ░████████░░██████░░████████
     -- ░░░░░░░░  ░░░░░░  ░░░░░░░░
-    -- Lua
+
+    -- Lua and teal
+    use 'teal-language/vim-teal'
 
     -- Lua dev scratchpad
     -- use 'bfredl/nvim-luadev'
@@ -536,6 +546,7 @@ function plugin_list(use, use_rocks)
     use {
         -- Debug Adapter Protocol client
         'mfussenegger/nvim-dap',
+        -- Rock for teal language server
         opt = true,
         ft = {'python', 'lua', 'rs', 'go'},
         requires = {{'mfussenegger/nvim-dap-python'}, {'theHamsta/nvim-dap-virtual-text'}, {

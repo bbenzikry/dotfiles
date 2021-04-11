@@ -14,9 +14,12 @@ local rustfmt = require "config.plugins.lsp.efm.rustfmt"
 local gofmt = require "config.plugins.lsp.efm.gofmt"
 
 -- Note: we install the lua language server with :LSPInstall lua
+-- TODO: Check which binary is currently available in path and select that. This could be lsp install or the brew one.
 local sumneko_bin_path = vim.fn.stdpath('data') .. '/lspinstall/lua/sumneko-lua-language-server'
 
 return {
+    -- https://github.com/teal-language/teal-language-server
+    teal = {},
     -- https://github.com/mads-hartmann/bash-language-server
     bashls = {},
     -- https://github.com/snoe/clojure-lsp

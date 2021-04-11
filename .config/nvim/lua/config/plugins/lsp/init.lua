@@ -105,6 +105,8 @@ end
 
 function M.config()
     local lspconfig = require 'lspconfig'
+    local configs = require 'lspconfig/configs'
+
     local lsp_status = require 'lsp-status'
     local saga = require 'lspsaga'
     -- If we want to overwrite defaults
@@ -267,25 +269,17 @@ function M.config()
         print("LSP attached.")
     end
 
-    local servers = require 'config.plugins.lsp.servers'
+    -- override defaults in lsp config
+    local defaults = require 'config.plugins.lsp.defaults'
 
-    utils.map_lua("n", "ga", "require('lspsaga.codeaction').code_action()")
-    utils.vmap_lua("ga", "require('lspsaga.codeaction').range_code_action()")
-    utils.map_lua("n", "gf", "require('lspsaga.provider').lsp_finder()")
-    utils.map_lua("n", "gs", "require('lspsaga.signaturehelp').signature_help()")
-    utils.map_lua("n", "gr", "require('lspsaga.rename').rename()")
-
-    -- Hover and definitions with scroll ability
-    utils.map_lua("n", "K", "require('lspsaga.hover').render_hover_doc()")
-    utils.map_lua("n", "gd", "require('lspsaga.provider').preview_definition()")
-
-    -- diagnostic
-    utils.map_lua("n", "<leader>d", "require('lspsaga.diagnostic').show_line_diagnostics()")
-    utils.map_lua("n", "gn", "require('lspsaga.diagnostic').lsp_jump_diagnostic_next()")
-    utils.map_lua("n", "gp", "require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()")
+    for server, default in pairs(defaults) do
+        configs[server] = default
+        -- require'pl.pretty'.dump(lspconfig[server])
+    end
 
     -- Signature help every time a selection is made. 
     -- vim.cmd [[autocmd User CompeConfirmDone :Lspsaga signature_help]]
+    local servers = require 'config.plugins.lsp.servers'
 
     for server, config in pairs(servers) do
         if config['attach_function'] then
@@ -302,8 +296,32 @@ function M.config()
                 properties = {"documentation", "detail", "additionalTextEdits"}
             }
         config.capabilities = vim.tbl_deep_extend('keep', config.capabilities, lsp_status.capabilities)
-        lspconfig[server].setup(config)
+        -- if server == 'teal' then
+        --     lspconfig[server].setup(config)
+        -- else
+        if lspconfig[server] and lspconfig[server].setup ~= nil then
+            lspconfig[server].setup(config)
+        end
+
+        -- end
     end
+
+    -- Key bindings
+    utils.map_lua("n", "ga", "require('lspsaga.codeaction').code_action()")
+    utils.vmap_lua("ga", "require('lspsaga.codeaction').range_code_action()")
+    utils.map_lua("n", "gf", "require('lspsaga.provider').lsp_finder()")
+    utils.map_lua("n", "gs", "require('lspsaga.signaturehelp').signature_help()")
+    utils.map_lua("n", "gr", "require('lspsaga.rename').rename()")
+
+    -- Hover and definitions with scroll ability
+    utils.map_lua("n", "K", "require('lspsaga.hover').render_hover_doc()")
+    utils.map_lua("n", "gd", "require('lspsaga.provider').preview_definition()")
+
+    -- diagnostic
+    utils.map_lua("n", "<leader>d", "require('lspsaga.diagnostic').show_line_diagnostics()")
+    utils.map_lua("n", "gn", "require('lspsaga.diagnostic').lsp_jump_diagnostic_next()")
+    utils.map_lua("n", "gp", "require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()")
+
 end
 
 return M
