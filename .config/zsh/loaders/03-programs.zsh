@@ -91,10 +91,7 @@ zt 0c light-mode binary for \
     jarun/nnn
 
 
-zt 0c light-mode null for atclone'mkdir -p ~/.local/share/nvim/site/autoload; \
-    ln -sf "$PWD/plug.vim" ~/.local/share/nvim/site/autoload/plug.vim' \
-    atpull'%atclone' \
-    junegunn/vim-plug \
+zt 0c light-mode null for \
     lbin'!'    davidosomething/git-my \
     from'gh-r' lbin"!diff-so-fancy" \
         so-fancy/diff-so-fancy \

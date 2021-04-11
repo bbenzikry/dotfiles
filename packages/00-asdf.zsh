@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+# NOTE: removed lua and reverted to brew lua and luajit as the ASDF version is pretty screwed up.
 if [[ -z $ASDF_DEFAULT_TOOL_VERSIONS_FILENAME ]]; then
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="${XDG_CONFIG_HOME:-$HOME/.config}/asdf/tool-versions"
 fi
@@ -12,7 +13,6 @@ if [[ ! -e "$ASDF_DEFAULT_TOOL_VERSIONS_FILENAME" ]] || [[ $1='force' ]]; then
         "leiningen" \
         "babashka" \
         "haxe" \
-        "lua" \
         "ruby" \
         "julia" \
         "kotlin" \

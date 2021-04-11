@@ -103,5 +103,6 @@ task install-packages # Installs ASDF global languages, python global tooling ( 
 
 
 ## Notes
+* default packages for rust, dotnet and go are pending PRs to individual asdf repos
 * any ASCII art used is probably generated with figlet
 * If you experience slow prompt load and keep settings related to asdf and java, precmd hooks used in the asdf java plugin are the culprit. you can remove the precmd or comment it out ( probably at ``~/.local/share/asdf/plugins/java/set-java-home.zsh``)

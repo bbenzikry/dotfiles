@@ -105,7 +105,8 @@ alias k='kubectl'
 
 
 # vim 
-alias vim="nvim"
+# We do this because of packer lua rocks issue: https://github.com/wbthomason/packer.nvim/issues/180
+alias vim="MACOSX_DEPLOYMENT_TARGET=10.15 nvim"
 
 
 # du
@@ -168,3 +169,7 @@ defaultprompt() {
 
 ## zinit alias pollution
 unalias zini zplg
+
+
+# lua specific issues
+alias luarocks='MACOSX_DEPLOYMENT_TARGET=10.15 luarocks'

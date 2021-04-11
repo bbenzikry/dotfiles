@@ -24,6 +24,7 @@ pathadd_head "$EXEC_DIR/bin"                          # exec dir
 pathadd_head "/usr/local/opt/llvm/bin"                # llvm dir ( contains lldb-vscode for debugging in vim DAP )
 pathadd_tail "$DOTNET_ROOT"                           # dotnet cli
 pathadd_tail "$DOTNET_TOOLS_DIR"                      # dotnet global tools
+pathadd_head "/usr/local/opt/openssl@1.1/bin"         # make sure we get the brew openssl version
 
 # If we want to directly add binaries from --user folder of the system installation. 
 command -v python3 >/dev/null 2>&1 &&  pathadd_tail "$HOME/Library/Python/$(python3 -c 'import sys; print(str(sys.version_info[0])+"."+str(sys.version_info[1]))')/bin"
