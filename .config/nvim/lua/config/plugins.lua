@@ -680,6 +680,7 @@ function plugin_list(use, use_rocks)
         "karb94/neoscroll.nvim",
         config = function()
             vim.g.neoscroll_cursor_scrolls_alone = 1
+            require'neoscroll'.setup()
         end
     }
 
