@@ -1,0 +1,67 @@
+diff --git a/lua/colorbuddy/init.lua b/lua/colorbuddy/init.lua
+index f508a70ebe78..f6df61038198 100644
+--- a/lua/colorbuddy/init.lua
++++ b/lua/colorbuddy/init.lua
+@@ -1,19 +1,16 @@
+ -- colorbuddy.vim
+ -- @author: TJ DeVries
+ -- Inspired HEAVILY by @tweekmonster's colorpal.vim
+-
+ vim.fn = vim.fn or setmetatable({}, {
+-  __index = function(t, key)
+-    local function _fn(...)
+-      return vim.api.nvim_call_function(key, {...})
++    __index = function(t, key)
++        local function _fn(...)
++            return vim.api.nvim_call_function(key, {...})
++        end
++        t[key] = _fn
++        return _fn
+     end
+-    t[key] = _fn
+-    return _fn
+-  end
+ })
+ 
+-
+-
+ local groups = require('colorbuddy.group').groups
+ local colors = require('colorbuddy.color').colors
+ 
+@@ -26,24 +23,22 @@ local M = {
+     Group = require('colorbuddy.group').Group,
+     colors = colors,
+     Color = require('colorbuddy.color').Color,
+-    styles = require('colorbuddy.style').styles,
++    styles = require('colorbuddy.style').styles
+ }
+ 
+ --- Exports globals so you can use them in a script.
+ --- Optionally returns them if you'd prefer to use them that way.
+ function M.setup()
+     Color = M.Color
+-    c = M.colors
++    -- c = M.colors
+     colors = M.colors
+ 
+     Group = M.Group
+-    g = M.groups
+     groups = M.groups
+ 
+-    s = M.styles
+     styles = M.styles
+ 
+-    return Color, c, Group, g, s
++    return Color, colors, Group, groups, styles
+ end
+ 
+ function M.colorscheme(name, light)
+@@ -51,7 +46,7 @@ function M.colorscheme(name, light)
+     if light then
+         bg = 'light'
+     else
+-        bg =  'dark'
++        bg = 'dark'
+     end
+ 
+     vim.api.nvim_command('set termguicolors')

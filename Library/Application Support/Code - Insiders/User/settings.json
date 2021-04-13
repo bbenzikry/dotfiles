@@ -113,5 +113,7 @@
     },
     "tabnine.experimentalAutoImports": true,
     "calva.paredit.defaultKeyMap": "strict",
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "editor.semanticHighlighting.enabled": true,
+    "Lua.telemetry.enable": false
 }

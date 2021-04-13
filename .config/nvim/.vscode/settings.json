@@ -1,0 +1,9 @@
+{
+    "Lua.workspace.library": [
+        "$HOME/.zinit/plugins/neovim--neovim/nvim-osx64/share/nvim/runtime/lua",
+        "$HOME/.zinit/plugins/neovim--neovim/nvim-osx64/share/nvim/runtime/lua/vim/lsp"
+    ],
+    "Lua.diagnostics.globals": [
+        "vim"
+    ]
+}
