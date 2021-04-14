@@ -1,0 +1,1 @@
+alias bbrepl="rlwrap bb --repl"

@@ -1,0 +1,6 @@
+alias ll='exa -l --icons'
+alias ls='exa --icons'
+alias gls='gls --color'
+alias exa='exa --icons'
+alias tree='exa --tree'
+alias curll='curl -L'
