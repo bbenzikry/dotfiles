@@ -4,6 +4,16 @@
     "python.languageServer": "Pylance",
     "jupyter.sendSelectionToInteractiveWindow": false,
     "rust-client.engine": "rust-analyzer",
+    "omnisharp.useGlobalMono": "never",
+    // "omnisharp.useGlobalMono": "always",
+    // "omnisharp.loggingLevel": "trace",
+    "omnisharp.projectLoadTimeout": 3000,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.enableDecompilationSupport": true,
+    "omnisharp.enableImportCompletion": true,
+    "omnisharp.path": "latest",
+    "csharp.semanticHighlighting.enabled": true,
+    "csharp.format.enable": true,
     "better-comments.tags": [
         {
             "tag": "note",
@@ -115,5 +125,8 @@
     "calva.paredit.defaultKeyMap": "strict",
     "window.zoomLevel": -1,
     "editor.semanticHighlighting.enabled": true,
-    "Lua.telemetry.enable": false
+    "Lua.telemetry.enable": false,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "go.toolsManagement.autoUpdate": true
 }

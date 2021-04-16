@@ -19,3 +19,7 @@ alias sigusr='kill -s SIGUSR1'
 snoop(){
     opensnoop -n $1
 }
+
+get_process_env(){
+    ps eww -o command $1 | tr ' ' '\n'
+}

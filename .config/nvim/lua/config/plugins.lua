@@ -11,7 +11,7 @@ end
 -- Auto compile when there are changes in plugins.lua ( just here for reference, happens in files.lua )
 -- cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
-function plugin_list(use, use_rocks)
+local function plugin_list(use, use_rocks)
     -- Packer itself
     use {
         'wbthomason/packer.nvim',
@@ -243,11 +243,17 @@ function plugin_list(use, use_rocks)
     -- Selectively use polyglot
     -- use 'sheerun/vim-polyglot'
 
+    -- Highlighting for logs
+    use "MTDL9/vim-log-highlighting"
+
     -- Advanced highlighting
     -- Treesitter + rainbow parentheses
     use {
         'nvim-treesitter/nvim-treesitter',
         requires = {{
+            'romgrk/nvim-treesitter-context',
+            after = 'nvim-treesitter'
+        }, {
             'nvim-treesitter/nvim-treesitter-refactor',
             after = 'nvim-treesitter'
         }, {
@@ -374,7 +380,7 @@ function plugin_list(use, use_rocks)
         config = function()
             require'config.plugins.lsp'.config()
         end,
-        requires = {{'nvim-lua/lsp-status.nvim'}, {'glepnir/lspsaga.nvim'} -- LSP UI improvements
+        requires = {'mfussenegger/nvim-jdtls', {'nvim-lua/lsp-status.nvim'}, {'glepnir/lspsaga.nvim'} -- LSP UI improvements
         }
     }
 
@@ -415,6 +421,12 @@ function plugin_list(use, use_rocks)
     --     ░░░░░░░░  ░░    ░░
     -- Git and git helpers 
 
+    -- use gy to for visual selection
+    use {
+        'ruifm/gitlinker.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+    }
+
     -- use 'tpope/vim-fugitive'
 
     -- Git status signs in the gutter
@@ -435,7 +447,7 @@ function plugin_list(use, use_rocks)
     use 'rhysd/git-messenger.vim'
 
     -- Formatting 
-    use 'sbdchd/neoformat'
+    -- use 'sbdchd/neoformat'
 
     -- Github integration
     -- use {
@@ -483,6 +495,7 @@ function plugin_list(use, use_rocks)
     --     ░░░░░░░░   ░░░░░░  ░░░  ░░░░░░░░ ░░░   ░░  ░░░░░
     -- Golang 
     use 'buoto/gotests-vim'
+    -- use 'fatih/vim-go' -- TODO: see how this interacts with LSP / DAP
 
     --     ████████                    ██
     --     ██░░░░░░                    ░██
@@ -518,7 +531,7 @@ function plugin_list(use, use_rocks)
         "Olical/conjure",
         ft = {"fennel", "clojure"},
         config = function()
-            require 'config.plugins.conjure'
+            require'config.plugins.conjure'.config()
         end
     }
     use {
@@ -534,6 +547,17 @@ function plugin_list(use, use_rocks)
     -- Janet
     use 'bakpakin/janet.vim'
 
+    --     ████     ██ ████████ ██████████
+    --     ░██░██   ░██░██░░░░░ ░░░░░██░░░
+    --     ░██░░██  ░██░██          ░██
+    --     ░██ ░░██ ░██░███████     ░██
+    --     ░██  ░░██░██░██░░░░      ░██
+    --     ░██   ░░████░██          ░██
+    --     ░██    ░░███░████████    ░██
+    -- ░██ ░░      ░░░ ░░░░░░░░     ░░
+
+    -- TODO: maybe omnisharp-vim
+
     -- ███████           ██
     -- ░██░░░░██         ░██               █████
     -- ░██    ░██  █████ ░██      ██   ██ ██░░░██
@@ -546,14 +570,11 @@ function plugin_list(use, use_rocks)
     use {
         -- Debug Adapter Protocol client
         'mfussenegger/nvim-dap',
-        -- Rock for teal language server
-        opt = true,
-        ft = {'python', 'lua', 'rs', 'go'},
-        requires = {{'mfussenegger/nvim-dap-python'}, {'theHamsta/nvim-dap-virtual-text'}, {
+        -- opt = true,
+        requires = {'mfussenegger/nvim-jdtls', {'mfussenegger/nvim-dap-python'}, {'theHamsta/nvim-dap-virtual-text'}, {
             'nvim-telescope/telescope-dap.nvim',
             after = 'telescope.nvim'
         }},
-        -- after = 'neovim/nvim-lspconfig',
         setup = function()
             require'config.plugins.dap'.setup()
         end,
@@ -605,8 +626,16 @@ function plugin_list(use, use_rocks)
 
     -- Database explorer
     use {
-        'kristijanhusak/vim-dadbod-ui',
-        requires = {'tpope/vim-dadbod'}
+        "kristijanhusak/vim-dadbod-ui",
+        cmd = {"DBUI"},
+        requires = {
+            "tpope/vim-dadbod",
+            opt = true
+        },
+        {
+            "kristijanhusak/vim-dadbod-completion",
+            opt = true
+        }
     }
 
     -- TODO: documentation
@@ -638,6 +667,7 @@ function plugin_list(use, use_rocks)
     -- ░██   ░    ░██░██ ░░░░░██░██   ██
     -- ░██        ░██░██ ██████ ░░█████
     -- ░░         ░░ ░░ ░░░░░░   ░░░░░
+    -- misc plugins
 
     -- Normal mkdir
     use "pbrisbin/vim-mkdir"
@@ -709,14 +739,6 @@ function plugin_list(use, use_rocks)
 
     -- In yo face comments
     use {'tjdevries/vim-inyoface'}
-
-    -- -- Show indentation lines
-    -- use {
-    --     'lukas-reineke/indent-blankline.nvim', 
-    --     branch = 'lua',
-    --     event = {'BufReadPre *', 'BufNewFile *'},
-    --     config = require('plugins.misc').indentline()
-    -- }
 
     -- Scrollbars in Neovim
     use {

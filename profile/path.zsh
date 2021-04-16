@@ -22,8 +22,8 @@ pathadd_head "$HOME/.local/sbin"                      # local sbin
 pathadd_tail "$HOME/.local/bin"                       # We add this last as we want venv and ASDF precedence over installed binaries. 
 pathadd_head "$EXEC_DIR/bin"                          # exec dir
 pathadd_head "/usr/local/opt/llvm/bin"                # llvm dir ( contains lldb-vscode for debugging in vim DAP )
-pathadd_tail "$DOTNET_ROOT"                           # dotnet cli
-pathadd_tail "$DOTNET_TOOLS_DIR"                      # dotnet global tools
+#pathadd_tail "$DOTNET_ROOT"                           # dotnet cli
+#pathadd_tail "$DOTNET_TOOLS_DIR"                      # dotnet global tools
 pathadd_head "/usr/local/opt/openssl@1.1/bin"         # make sure we get the brew openssl version
 
 # If we want to directly add binaries from --user folder of the system installation. 

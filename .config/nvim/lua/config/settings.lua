@@ -65,7 +65,8 @@ w.relativenumber = true -- Show relative line numbers
 w.signcolumn = 'yes:9' -- Show information next to the line numbers, allow up to 9 signs
 w.wrap = false -- Disable line wrap
 w.linebreak = true -- Break lines by spaces or tabs
-o.showbreak = '↳ '
+-- o.showbreak = '↳ '
+o.showbreak = '↪'
 
 o.foldenable = true -- Enable folding
 o.foldlevel = 0 -- Fold by default
@@ -123,10 +124,14 @@ opt('grepformat', '%f:%l:%c:%m,%f:%l:%m')
 --     ".git,.svn"
 -- }
 
-opt('listchars', {'nbsp:⦸', -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-'tab:  ', 'extends:»', -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-'precedes:«', -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-'trail:·' -- Dot Operator (U+22C5)
+opt('listchars', {
+'nbsp:⦸', -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+'tab:→  ', 
+'extends:»', -- Extending
+'precedes:«', -- Preceeding
+'trail:·', -- Trailing spaces
+-- 'eol:¶' -- End of line / pilcrow,
+'eol:¬' -- End of line / negation icon,
 }, window)
 opt('fillchars', 'eob: ') -- Suppress ~ at EndOfBuffer
 

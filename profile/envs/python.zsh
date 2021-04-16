@@ -9,3 +9,5 @@ export PYTHON_EGG_CACHE="$XDG_CACHE_HOME/python-eggs"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 # matplotlib
 export MPLCONFIGDIR="$XDG_CONFIG_HOME"/matplotlib
+# Note that there's no seperation of data / config in poetry.
+export POETRY_HOME="$XDG_CONFIG_HOME/poetry"

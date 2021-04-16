@@ -104,6 +104,22 @@ zt 0c light-mode null for \
     # atclone'autoreconf --install && ./configure --prefix=$ZPFX' make'PREFIX=$ZPFX' lbin'rlwrap' hanslub42/rlwrap
 
 
+
+## Release based language servers and other language related tooling
+### Omnisharp for C# / VB.NET
+### netcoredbg for open source debugging
+zt 0c light-mode ver'latest' from'gh-r' null nocompile for \
+id-as"omnisharp" bpick'omnisharp-osx.tar.gz' sbin'run -> omnisharp' atpull"%atclone" OmniSharp/omnisharp-roslyn \
+id-as"netcoredbg" extract="!netcoredbg" bpick'*osx*' lbin'!netcoredbg' Samsung/netcoredbg 
+
+
+
+
+
+
+
+
+
 # TODO: spack
 # zinit ice wait lucid as'program' pick'bin/spack' \
 #   atclone'./bin/spack bootstrap; \

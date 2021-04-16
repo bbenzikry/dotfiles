@@ -274,7 +274,6 @@ function M.config()
 
     for server, default in pairs(defaults) do
         configs[server] = default
-        -- require'pl.pretty'.dump(lspconfig[server])
     end
 
     -- Signature help every time a selection is made. 
@@ -296,9 +295,9 @@ function M.config()
                 properties = {"documentation", "detail", "additionalTextEdits"}
             }
         config.capabilities = vim.tbl_deep_extend('keep', config.capabilities, lsp_status.capabilities)
-        -- if server == 'teal' then
-        --     lspconfig[server].setup(config)
-        -- else
+        -- if server == 'omnisharp' then
+        --     require'pl.pretty'.dump(config)
+        -- end
         if lspconfig[server] and lspconfig[server].setup ~= nil then
             lspconfig[server].setup(config)
         end

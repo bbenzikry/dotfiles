@@ -29,6 +29,7 @@
 * [vscode-insiders extensions](./.config/code-insiders/Codefile)
 * Removes all kinds of [telemtry](./profile/01-telemetry.zsh) by default
 * zsh with [zinit](https://github.com/zdharma/zinit) for loading plugins with async goodness
+* Basic support for fish and nushell
 * ``$EDITOR`` is [neovim](https://neovim.io)
 * ``$VISUAL`` is vscode insiders
 * [Alfred](https://www.alfredapp.com)
@@ -50,7 +51,7 @@
 Notes:
 * ASDF dir is still at $HOME and default-* dotfiles are not customizable ( see: https://github.com/asdf-vm/asdf/issues/687)
 * .zshenv is still at $HOME, other zsh files are at $XDG_CONFIG_HOME/zsh
-* Neovim configuration is fully based on lua. I'm considering adding Fennel for expirementation and usability. 
+* Neovim configuration is fully based on lua. I'm considering adding Fennel for expirementation and usability.
 
 > [Sourcehut mirror](https://git.sr.ht/~bbenzikry/dotfiles)
 
@@ -70,7 +71,7 @@ Same as make install.
 Interactive installation, will install brew packages and configure macos defaults.
 Will ask for sudo.
 c
-./src/setup.sh 
+./src/setup.sh
 
 # After initial setup
 task install-packages # Installs ASDF global languages, python global tooling ( via pipx ) and vscode extensions.
@@ -104,6 +105,8 @@ task install-packages # Installs ASDF global languages, python global tooling ( 
 ## Notes
 * default packages for rust, dotnet and go are pending PRs to individual asdf repos
 * any ASCII art used is probably generated with figlet
-* If you experience slow prompt load and keep settings related to asdf and java, precmd hooks used in the asdf java plugin are the culprit. you can remove the precmd or comment it out ( probably at ``~/.local/share/asdf/plugins/java/set-java-home.zsh``)
+* If you experience slow prompt load and keep settings related to asdf and
+* java, precmd hooks used in the asdf java plugin are the culprit. you can
+* remove the precmd or comment it out ( probably at
+* ``~/.local/share/asdf/plugins/java/set-java-home.zsh``)
 * See [nvim config](./.config/nvim) for faq on my configuration
-

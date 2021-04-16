@@ -18,6 +18,13 @@ local gofmt = require "config.plugins.lsp.efm.gofmt"
 local sumneko_bin_path = vim.fn.stdpath('data') .. '/lspinstall/lua/sumneko-lua-language-server'
 
 return {
+    omnisharp = {
+        log_level = 2,
+        cmd = {os.getenv("HOME") .. "/.zinit/plugins/omnisharp/run", "-v", "-lsp", "-hpid", tostring(vim.fn.getpid())},
+        filetypes = {'cache', 'cs', 'csproj', 'dll', 'nuget', 'props', 'sln', 'targets'},
+        root_dir = lspconfig.util.root_pattern("*.sln")
+    },
+    sqlls = {},
     -- https://github.com/teal-language/teal-language-server
     teal = {},
     -- https://github.com/mads-hartmann/bash-language-server

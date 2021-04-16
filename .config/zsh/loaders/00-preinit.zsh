@@ -46,7 +46,7 @@ bindkey -e
 umask 022
 
 # Set ulimit
-ulimit -n unlimited
+ulimit -n 1048576
 
 # automatically remove duplicates from the following
 typeset -U path cdpath fpath manpath

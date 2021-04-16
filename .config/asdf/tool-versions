@@ -20,4 +20,4 @@ lua 5.4.2
 haskell 9.0.1
 dotty 3.0.0-RC1
 direnv 2.27.0
-dotnet-core 6.0.100-preview.2.21155.3
+dotnet-core 6.0.100-preview.3.21202.5
