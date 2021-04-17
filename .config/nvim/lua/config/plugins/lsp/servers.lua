@@ -195,6 +195,8 @@ return {
             }
         }
     },
+    -- Swift debugging ( https://github.com/apple/sourcekit-lsp )
+    sourcekit = {},
     -- https://github.com/mattn/efm-langserver,
     efm = {
         cmd = {"efm-langserver", "-c", efm_config, "-logfile", log_dir .. "efm.log"},
