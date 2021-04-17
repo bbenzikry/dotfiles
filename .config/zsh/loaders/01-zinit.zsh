@@ -13,6 +13,8 @@
 # from: https://github.com/zdharma/zinit-configs/blob/master/NICHOLAS85/.zshrc
 # zt() : First argument is a wait time and suffix, ie "0a". Anything that doesn't match will be passed as if it were an ice mod. Default ices depth'3' and lucid
 zt(){ zinit depth'3' lucid ${1/#[0-9][a-c]/wait"${1}"} "${@:2}"; }
+ztnodepth(){ zinit lucid ${1/#[0-9][a-c]/wait"${1}"} "${@:2}"; }
+
 zt_completion(){zinit ice lucid ${1/#[0-9][a-c]/wait"${1}"} as"completion" "${@:2}";  }
 
 omz_plugin() {

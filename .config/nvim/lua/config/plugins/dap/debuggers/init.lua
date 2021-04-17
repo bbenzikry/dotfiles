@@ -1,7 +1,7 @@
 local M = {}
 
 -- Note: clojure and other lisps are not here as we use Conjure
-local debuggers = {'cxxrust', 'dart', 'go', 'haskell', 'java', 'javascript', 'lua', 'mock', 'omnisharp', 'python',
+local debuggers = {'cxxrust', 'dart', 'go', 'haskell', 'java', 'javascript', 'lua', 'mock', 'netcoredbg', 'python',
                    'ruby'}
 function M.init()
     -- local can_popup, popup = pcall(require, 'popup')

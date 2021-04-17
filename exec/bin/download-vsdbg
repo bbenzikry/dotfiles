@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+if [[ ! -d "$1" ]]; then
+    echo "Please provide a directory to download vsdbg to"
+    return 1
+fi
+
+(){
+local VSDBG_URL="https://download.visualstudio.microsoft.com/download/pr/15786370-6d35-4cac-8d70-618dfc5aa9ad/829575bd3a1e1837b3be4c2d1e02fc85/coreclr-debug-osx-x64.zip"
+# We shouldn't use the oneliner here as zip index file causes permission to break when stream uncompressing with pipe
+# However, permissions aren't set well anyway, so whatever.
+wget -qO- "$VSDBG_URL" | bsdtar -xvf- -C "$1"
+chmod +x ./vsdbg ./vsdbg-ui
+# wget -O vsdbg.zip "$VSDBG_URL" && unzip vsdbg.zip && rm vsdbg.zip
+} "$1"
+
+
+# curl -sSL "https://aka.ms/getvsdbgsh" | bash /dev/stdin -v latest -l "$1"

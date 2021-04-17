@@ -108,9 +108,27 @@ zt 0c light-mode null for \
 ## Release based language servers and other language related tooling
 ### Omnisharp for C# / VB.NET
 ### netcoredbg for open source debugging
-zt 0c light-mode ver'latest' from'gh-r' null nocompile for \
-id-as"omnisharp" bpick'omnisharp-osx.tar.gz' sbin'run -> omnisharp' atpull"%atclone" OmniSharp/omnisharp-roslyn \
-id-as"netcoredbg" extract="!netcoredbg" bpick'*osx*' lbin'!netcoredbg' Samsung/netcoredbg 
+### vsdbg for closed source debugging ;]
+### abs-lang for fun
+zt 0c light-mode ver'latest' null nocompile for \
+from'gh-r' id-as"omnisharp" bpick'omnisharp-osx.tar.gz' sbin'run -> omnisharp' atpull"%atclone" OmniSharp/omnisharp-roslyn \
+from'gh-r' id-as"netcoredbg" extract="!netcoredbg" bpick'*osx*' lbin'!netcoredbg' Samsung/netcoredbg \
+id-as"vsdbg" lbin'!vsdbg' lbin'!vsdbg-ui' atclone'download-vsdbg $(pwd)' zdharma/null \
+id-as'abs-lang' from'gh-r' lbin'!abs-lang' bpick'*darwin*' mv'abs* -> abs-lang' abs-lang/abs
+
+
+
+## Mac Debugging helpers
+zt 0c light-mode null nocompile for \
+id-as"bitcode-retriever" lbin'!build/bitcode_retriever' make AlexDenisov/bitcode_retriever \
+id-as"segment_dumper" lbin'!build/segment_dumper' make AlexDenisov/segment_dumper
+
+ztnodepth 0c light-mode null nocompile for \
+id-as"libebc" has"llvm-dis" has"cmake" atclone'build-libebc' lbin'!build/tool/ebcutil' atpull'%atclone' ver'llvm-11' bbenzikry/LibEBC
+
+# && cmake -DCMAKE_PREFIX_PATH=/usr/local/opt/libxml2 -DCMAKE_PREFIX_PATH=/usr/local/opt/zlib --build .
+
+
 
 
 

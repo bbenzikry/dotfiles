@@ -56,3 +56,5 @@ typeset -U path cdpath fpath manpath
 HISTSIZE=9999999
 SAVEHIST=$HISTSIZE
 
+## iterm shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

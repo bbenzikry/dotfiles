@@ -110,3 +110,4 @@ task install-packages # Installs ASDF global languages, python global tooling ( 
 * remove the precmd or comment it out ( probably at
 * ``~/.local/share/asdf/plugins/java/set-java-home.zsh``)
 * See [nvim config](./.config/nvim) for faq on my configuration
+* Depending on where you run this from, [Ghidra](https://ghidra-sre.org) may fail to install from brew. If that's the case, download the appropriate version via tor / VPN and ``mv ZIP_FILE $(brew cache --prefix ghidra)`` - installation should be OK after that. 

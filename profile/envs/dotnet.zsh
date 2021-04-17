@@ -13,7 +13,7 @@
 # }
 
 # # Currently dotnet does not support XDG ( https://github.com/dotnet/sdk/issues/10390 )
-# export DOTNET_TOOLS_DIR="$HOME/.dotnet"
+export DOTNET_TOOLS_DIR="$HOME/.dotnet/tools"
 
 
 # # Omnisharp home for global omnisharp configuration

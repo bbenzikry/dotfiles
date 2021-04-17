@@ -54,6 +54,9 @@ function M.config()
 
     -- DAP control functions
     function _G.__dap_start()
+        -- We automatically add configurations as defined by vscode
+        -- Note that this currently only works well with local changes to nvim-dap
+        require('dap.ext.vscode').load_launchjs()
         dap.continue()
         vim.wo.signcolumn = 'auto:2'
     end

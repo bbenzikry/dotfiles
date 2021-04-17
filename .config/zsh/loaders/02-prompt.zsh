@@ -48,6 +48,13 @@ neofetch_start(){
     else 
         neofetch
     fi
+    if command -v imgcat > /dev/null; then 
+        gifs=($XDG_CONFIG_HOME/bbenzikry/resources/gifs/*.gif)
+        size=${#gifs[@]}
+        index=$((1 + $RANDOM%$size))
+        gif=$gifs[$index]
+        imgcat "$gif"
+    fi
 }
 
 
