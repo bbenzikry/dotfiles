@@ -107,12 +107,12 @@ zt 0c light-mode null for \
 
 ## Release based language servers and other language related tooling
 ### Omnisharp for C# / VB.NET
-### netcoredbg for open source debugging
+### netcoredbg for open source debugging ( note sbin is used so we load from actual netcoredbg folder including relevant dylibs)
 ### vsdbg for closed source debugging ;]
 ### abs-lang for fun
 zt 0c light-mode ver'latest' null nocompile for \
 from'gh-r' id-as"omnisharp" bpick'omnisharp-osx.tar.gz' sbin'run -> omnisharp' atpull"%atclone" OmniSharp/omnisharp-roslyn \
-from'gh-r' id-as"netcoredbg" extract="!netcoredbg" bpick'*osx*' lbin'!netcoredbg' Samsung/netcoredbg \
+id-as"netcoredbg" atpull'%atclone' atclone'build-netcoredbg' sbin'bin/netcoredbg' Samsung/netcoredbg \
 id-as"vsdbg" lbin'!vsdbg' lbin'!vsdbg-ui' atclone'download-vsdbg $(pwd)' zdharma/null \
 id-as'abs-lang' from'gh-r' lbin'!abs-lang' bpick'*darwin*' mv'abs* -> abs-lang' abs-lang/abs
 

@@ -20,7 +20,11 @@ pathadd_head "$OPAM_SWITCH_PREFIX/bin"                # opam
 pathadd_head "$CARGO_HOME/bin"                        # cargo (rust)
 pathadd_head "$HOME/.local/sbin"                      # local sbin
 pathadd_tail "$HOME/.local/bin"                       # We add this last as we want venv and ASDF precedence over installed binaries. 
-pathadd_head "$EXEC_DIR/bin"                          # exec dir
+pathadd_head "$EXEC_DIR/bin"                          # exec dir - misc executables and scripts
+pathadd_head "$EXEC_DIR/buildhelpers"                 # exec dir - build helpers, mostly simple calls to make/cmake
+pathadd_head "$EXEC_DIR/installers"                   # exec dir - different installers / uninstallers
+
+
 pathadd_head "/usr/local/opt/llvm/bin"                # llvm dir ( contains lldb-vscode for debugging in vim DAP )
 #pathadd_tail "$DOTNET_ROOT"                           # dotnet cli
 pathadd_tail "$DOTNET_TOOLS_DIR"                      # dotnet global tools
