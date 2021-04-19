@@ -116,8 +116,8 @@ from'gh-r' id-as"omnisharp" bpick'omnisharp-osx.tar.gz' sbin'run -> omnisharp' a
 id-as"netcoredbg" atpull'%atclone' atclone'build-netcoredbg' sbin'bin/netcoredbg' Samsung/netcoredbg \
 id-as"vsdbg" lbin'!vsdbg' lbin'!vsdbg-ui' atclone'download-vsdbg $(pwd)' zdharma/null \
 id-as'abs-lang' from'gh-r' lbin'!abs-lang' bpick'*darwin*' mv'abs* -> abs-lang' abs-lang/abs \
-id-as'dex-tools' from'gh-r' sbin'*.sh' pxb1988/dex2jar \
-id-as 'cfr-decompiler' from'gh-r' leibnitz27/cfr
+id-as'dex-tools' from'gh-r' pxb1988/dex2jar \
+id-as'cfr-decompiler' from'gh-r' leibnitz27/cfr
 
 ## Mac Debugging helpers
 zt 0c light-mode null nocompile for \
@@ -126,9 +126,6 @@ id-as"segment_dumper" lbin'!build/segment_dumper' make AlexDenisov/segment_dumpe
 
 ztnodepth 0c light-mode null nocompile for \
 id-as"libebc" has"llvm-dis" has"cmake" atclone'build-libebc' lbin'!build/tool/ebcutil' atpull'%atclone' ver'llvm-11' bbenzikry/LibEBC
-
-
-
 
 # TODO: spack
 # zinit ice wait lucid as'program' pick'bin/spack' \

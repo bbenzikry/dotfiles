@@ -49,12 +49,12 @@ export AUTOMATEDLAB_TELEMETRY_OPTOUT='1'
 export CHECKPOINT_DISABLE=1
 
 # GCloud
-if command -v gcloud >/dev/null 2>&1 >/dev/null ; then
+if command -v gcloud >/dev/null 2>&1 ; then
     gcloud config set disable_usage_reporting true >/dev/null 2>&1
 fi
 
 # Netlify
-if command -v 'netlify' >/dev/null 2>&1 >/dev/null
+if command -v 'netlify' >/dev/null 2>&1
 then
   'netlify' --telemetry-disable >/dev/null 2>&1
 fi
