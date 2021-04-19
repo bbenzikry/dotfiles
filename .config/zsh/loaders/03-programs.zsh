@@ -105,18 +105,19 @@ zt 0c light-mode null for \
 
 
 
-## Release based language servers and other language related tooling
+## Release based language servers and other language / reversing related tooling
 ### Omnisharp for C# / VB.NET
 ### netcoredbg for open source debugging ( note sbin is used so we load from actual netcoredbg folder including relevant dylibs)
 ### vsdbg for closed source debugging ;]
 ### abs-lang for fun
+### dex2jar and cfr decompiler for android and java reversing
 zt 0c light-mode ver'latest' null nocompile for \
 from'gh-r' id-as"omnisharp" bpick'omnisharp-osx.tar.gz' sbin'run -> omnisharp' atpull"%atclone" OmniSharp/omnisharp-roslyn \
 id-as"netcoredbg" atpull'%atclone' atclone'build-netcoredbg' sbin'bin/netcoredbg' Samsung/netcoredbg \
 id-as"vsdbg" lbin'!vsdbg' lbin'!vsdbg-ui' atclone'download-vsdbg $(pwd)' zdharma/null \
-id-as'abs-lang' from'gh-r' lbin'!abs-lang' bpick'*darwin*' mv'abs* -> abs-lang' abs-lang/abs
-
-
+id-as'abs-lang' from'gh-r' lbin'!abs-lang' bpick'*darwin*' mv'abs* -> abs-lang' abs-lang/abs \
+id-as'dex-tools' from'gh-r' sbin'*.sh' pxb1988/dex2jar \
+id-as 'cfr-decompiler' from'gh-r' leibnitz27/cfr
 
 ## Mac Debugging helpers
 zt 0c light-mode null nocompile for \
@@ -125,15 +126,6 @@ id-as"segment_dumper" lbin'!build/segment_dumper' make AlexDenisov/segment_dumpe
 
 ztnodepth 0c light-mode null nocompile for \
 id-as"libebc" has"llvm-dis" has"cmake" atclone'build-libebc' lbin'!build/tool/ebcutil' atpull'%atclone' ver'llvm-11' bbenzikry/LibEBC
-
-# && cmake -DCMAKE_PREFIX_PATH=/usr/local/opt/libxml2 -DCMAKE_PREFIX_PATH=/usr/local/opt/zlib --build .
-
-
-
-
-
-
-
 
 
 
