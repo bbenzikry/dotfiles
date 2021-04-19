@@ -68,13 +68,14 @@ dotfiles checkout
 # Bootstrapping
 <<c
 Same as make install.
+Makefile will be removed soon.
 Interactive installation, will install brew packages and configure macos defaults.
 Will ask for sudo.
 c
 ./src/setup.sh
 
 # After initial setup
-task install-packages # Installs ASDF global languages, python global tooling ( via pipx ) and vscode extensions.
+task install-packages # Installs ASDF global languages, python global tooling ( via pipx ) and vscode extensions if needed.
 ```
 
 ## (☞ ͡° ͜ʖ ͡°)☞ Get in touch
