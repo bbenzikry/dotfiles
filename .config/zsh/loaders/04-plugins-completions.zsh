@@ -63,7 +63,6 @@ zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=do
 
 # TODO: kubectl one is problematic if we change versions
 zt light-mode for \
-    has"kubectl" id-as"kubectl_completion" trigger-load'!kubectl' atinit"source <(kubectl completion zsh) && source <(kubectl completion zsh | sed 's/kubectl/k/g')" zdharma/null \
     trigger-load'!conda' as"completion" esc/conda-zsh-completion \
     has"gsed" trigger-load'!code-insiders' atclone"gsed -i -e 's/@@APPNAME@@/code-insiders/' _code-insiders" as"completion" mv'_code* -> _code-insiders' https://github.com/microsoft/vscode/blob/main/resources/completions/zsh/_code \
     trigger-load'!x' \
@@ -88,6 +87,12 @@ zt light-mode for \
 # local completions
 zt_completion 0a blockf
 zinit snippet "${ASDF_DIR}/completions/_asdf"
+
+
+# Generated completions
+zt 0a light-mode for \
+has"kubectl" is-snippet id-as"kubectl_completion" atclone"kubectl completion zsh > _kubectl && kubectl completion zsh | sed 's/kubectl/k/g' > _k" /dev/null
+
 
 ##################
 # Wait'0a' block #
@@ -116,6 +121,9 @@ zt 0a light-mode for \
     # If we want LS colors instead of default zsh snazzy.
     # pack'no-dir-color-swap' atload"zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}" \
     #     trapd00r/LS_COLORS \
+        # 
+
+
 
 zt 0b light-mode reset nocompile'!' for \
     atload'ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(__fz_zsh_completion)' \
@@ -173,9 +181,8 @@ zt 0b as"completion" for \
 zt 0c light-mode as"null" atload'autoload -Uz $PWD/crash && crash register' for molovo/crash
 
 zt 0c light-mode null for \
-id-as'Cleanup' nocd atinit'_zsh_autosuggest_bind_widgets; eval "$(asdf exec direnv hook zsh)"' \
-        zdharma/null
-
+id-as'Cleanup' is-snippet atinit'_zsh_autosuggest_bind_widgets; eval "$(asdf exec direnv hook zsh)"' \
+        /dev/null
 
     # TODO: marlonrichert/zsh-autocomplete \
 
