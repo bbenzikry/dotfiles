@@ -151,4 +151,4 @@ id-as"libebc" has"llvm-dis" has"cmake" atclone'build-libebc' lbin'!build/tool/eb
 ### Solana
 ### 
 zt 0a from"gh-r" for \
-sbin"solana-release/bin/solana" bpick"*apple*.tar.bz2" solana-labs/solana
+sbin"solana-release/bin/solana*" bpick"*apple*.tar.bz2" solana-labs/solana
