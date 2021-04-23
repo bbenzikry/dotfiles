@@ -145,3 +145,10 @@ id-as"libebc" has"llvm-dis" has"cmake" atclone'build-libebc' lbin'!build/tool/eb
 # wget http://path/to/workflow.alfredworkflow
 # unzip workflow.alfredworkflow
 # mv workflow ~/path/to/installed/workflows/
+
+
+## Crypto stuff
+### Solana
+### 
+zt 0a from"gh-r" for \
+sbin"solana-release/bin/solana" bpick"*apple*.tar.bz2" solana-labs/solana
