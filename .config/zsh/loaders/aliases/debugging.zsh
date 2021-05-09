@@ -23,3 +23,13 @@ snoop(){
 get_process_env(){
     ps eww -o command $1 | tr ' ' '\n'
 }
+
+
+file_info(){
+    local bin_type=$(file $1 | awk '{a=match($0, $2); print substr($0,a)}')
+    echo "File type: $bin_type"
+}
+
+hook_stdout(){
+strace -ewrite -p $1 2>&1 | grep "write(1"
+}

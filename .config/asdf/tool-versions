@@ -8,11 +8,11 @@ scala 2.13.5
 sbt 1.4.7
 poetry 1.1.4
 kotlin 1.4.31
-babashka 0.2.11
+babashka 0.4.0
 leiningen 2.9.5
 deno 1.7.5
 haxe 4.2.1
-golang 1.16.2
+golang 1.16.3
 ruby 3.1.0-dev
 kubectl 1.20.4
 python system
