@@ -5,6 +5,7 @@
     "jupyter.sendSelectionToInteractiveWindow": false,
     "rust-client.engine": "rust-analyzer",
     "omnisharp.useGlobalMono": "never",
+    "explorer.autoReveal": "focusNoScroll",
     // "omnisharp.useGlobalMono": "always",
     // "omnisharp.loggingLevel": "trace",
     "omnisharp.projectLoadTimeout": 3000,
@@ -109,12 +110,9 @@
         "**/.metals": true,
         "**/.ammonite": true
     },
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter-notebook",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "calva.prettyPrintingOptions": {
         "enabled": true,
         "printEngine": "pprint",
@@ -123,10 +121,16 @@
     },
     "tabnine.experimentalAutoImports": true,
     "calva.paredit.defaultKeyMap": "strict",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -2,
     "editor.semanticHighlighting.enabled": true,
     "Lua.telemetry.enable": false,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "solidity.compileUsingRemoteVersion": "v0.8.0+commit.c7dfd78e",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "solidity.formatter": "none"
 }

@@ -26,7 +26,10 @@ parallel pipx_pypy ::: \
 	# Speed test CLI
 	git+https://github.com/sivel/speedtest-cli.git \
 	# Reddit terminal
-	git+https://gitlab.com/ajak/tuir.git
+	git+https://gitlab.com/ajak/tuir.git \
+	# Master brownie
+	git+https://github.com/eth-brownie/brownie.git@master
+
 
 # The most important part here is ptpython
 parallel pipx install --system-site-packages ::: \

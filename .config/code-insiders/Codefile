@@ -16,6 +16,7 @@ golang.go
 icsharpcode.ilspy-vscode
 idleberg.applescript
 jakeboone02.cypher-query-language
+jebbs.plantuml
 jpoissonnier.vscode-styled-components
 JuanBlanco.solidity
 Kasik96.swift
@@ -24,6 +25,7 @@ loilo.snazzy-light
 mattn.Lisp
 ms-azuretools.vscode-docker
 ms-dotnettools.csharp
+ms-dotnettools.vscode-dotnet-runtime
 ms-python.python
 ms-python.vscode-pylance
 ms-toolsai.jupyter
@@ -40,6 +42,11 @@ scalameta.metals
 sumneko.lua
 TabNine.tabnine-vscode
 TheNuProjectContributors.vscode-nushell-lang
+tintinweb.graphviz-interactive-preview
+tintinweb.solidity-visual-auditor
+tintinweb.vscode-ethover
+tintinweb.vscode-inline-bookmarks
+tintinweb.vscode-solidity-flattener
 usqlextpublisher.usql-vscode-ext
 vscode-icons-team.vscode-icons
 vsls-contrib.gistfs

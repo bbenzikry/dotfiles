@@ -28,6 +28,7 @@ if [[ ! -e "$ASDF_DEFAULT_TOOL_VERSIONS_FILENAME" ]] || [[ $1='force' ]]; then
         "poetry" \
         "deno" \
         "haskell" \
+        "gradle" \
         "kubectl";
         do
         asdf plugin-add ${app}

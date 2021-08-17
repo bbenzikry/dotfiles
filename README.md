@@ -108,4 +108,4 @@ task install-packages # Installs ASDF global languages, python global tooling ( 
 * any ASCII art used is probably generated with figlet
 * If you experience slow prompt load and keep settings related to asdf and java, precmd hooks used in the asdf java plugin are the culprit. you can remove the precmd or comment it out ( probably at ``~/.local/share/asdf/plugins/java/set-java-home.zsh``)
 * See [nvim config](./.config/nvim) for FAQ on my configuration
-* Depending on where you run this from, [Ghidra](https://ghidra-sre.org) may fail to install from brew. If that's the case, download the appropriate version via tor / VPN and ``mv ZIP_FILE $(brew cache --prefix ghidra)`` - installation should be OK after that. 
+* Depending on where you run this from, [Ghidra](https://ghidra-sre.org) may fail to install from brew. If that's the case, download the appropriate release from https://github.com/NationalSecurityAgency/ghidra/releases and ``mv ZIP_FILE $(brew cache --prefix ghidra)`` - installation should be OK after that.
