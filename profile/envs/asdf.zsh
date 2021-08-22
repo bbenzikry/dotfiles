@@ -15,3 +15,6 @@ export ASDF_DEFAULT_PACKAGE_DIR="$ASDF_CONFIG_HOME/defaults"
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="${XDG_CONFIG_HOME:-$HOME/.config}/asdf/tool-versions"
 export ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
 export ASDF_NPM_DEFAULT_PACKAGES_FILE="$ASDF_DEFAULT_PACKAGE_DIR/node"
+
+# See: https://github.com/danhper/asdf-python on why we need this
+export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
