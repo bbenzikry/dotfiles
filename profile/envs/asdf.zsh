@@ -18,3 +18,4 @@ export ASDF_NPM_DEFAULT_PACKAGES_FILE="$ASDF_DEFAULT_PACKAGE_DIR/node"
 
 # See: https://github.com/danhper/asdf-python on why we need this
 export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
+export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$ASDF_DEFAULT_PACKAGE_DIR/python"
