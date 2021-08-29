@@ -11,3 +11,5 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export MPLCONFIGDIR="$XDG_CONFIG_HOME"/matplotlib
 # Note that there's no seperation of data / config in poetry.
 export POETRY_HOME="$XDG_CONFIG_HOME/poetry"
+# Prevent creation of .pyc files
+export PYTHONDONTWRITEBYTECODE=1
