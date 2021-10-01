@@ -13,3 +13,5 @@ do-not-disturb-cli
 conduct
 eslint
 sql-language-server
+yo
+generator-code
