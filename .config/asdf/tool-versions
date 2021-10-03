@@ -22,3 +22,4 @@ dotty 3.0.0-RC1
 direnv 2.27.0
 dotnet-core 6.0.100-preview.3.21202.5
 solidity latest
+flux2 0.16.1
