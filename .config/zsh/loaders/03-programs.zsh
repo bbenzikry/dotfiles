@@ -127,7 +127,7 @@ id-as"segment_dumper" lbin'!build/segment_dumper' make AlexDenisov/segment_dumpe
 ztnodepth 0c light-mode null nocompile for \
 id-as"libebc" has"llvm-dis" has"cmake" atclone'build-libebc' lbin'!build/tool/ebcutil' atpull'%atclone' ver'llvm-11' bbenzikry/LibEBC
 
-# TODO: spack
+# TODO: spack ( note: mostly don't have use for that right now )
 # zinit ice wait lucid as'program' pick'bin/spack' \
 #   atclone'./bin/spack bootstrap; \
 #           ./bin/spack install lmod coreutils automake autoconf openssl \
@@ -146,7 +146,7 @@ id-as"libebc" has"llvm-dis" has"cmake" atclone'build-libebc' lbin'!build/tool/eb
 # unzip workflow.alfredworkflow
 # mv workflow ~/path/to/installed/workflows/
 
-
+# TODO: move this
 ## Crypto stuff
 ### Solana
 ### Starport for blockchain creation

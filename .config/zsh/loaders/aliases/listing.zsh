@@ -1,4 +1,4 @@
-alias ll='exa -l --icons'
+alias ll='exa --git -hl --color=always --icons'
 alias ls='exa --icons'
 alias gls='gls --color'
 alias exa='exa --icons'

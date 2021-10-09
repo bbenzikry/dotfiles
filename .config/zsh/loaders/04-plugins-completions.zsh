@@ -45,15 +45,47 @@ zstyle ':fzf-tab:complete:(cd|ls|exa):argument-rest' fzf-flags --preview-window=
 
 # TODO: change preview to nnn based preview or add support for iTerm protocol in fzf ( when I have time )
 # example wanted for fzf in preview is: viu -- $realpath 2>/dev/null || 
-zstyle ':fzf-tab:complete:((cat|bat|nano|nvim|vim|cp|rm):argument-rest|vscode-insiders:*)' fzf-preview 'bat --color=always -- $realpath 2>/dev/null || ls --color=always -- $realpath'
-zstyle ':fzf-tab:complete:nano:argument-rest' fzf-flags --preview-window=right:65%
+# zstyle ':fzf-tab:complete:((cat|bat|nano|nvim|vim|cp|rm):argument-rest|vscode-insiders:*)' fzf-preview 'bat --color=always -- $realpath 2>/dev/null || ls --color=always -- $realpath'
+# zstyle ':fzf-tab:complete:nano:argument-rest' fzf-flags --preview-window=right:65%
 
-# zstyle ':fzf-tab:complete:updatelocal:argument-rest' fzf-preview "git --git-dir=$UPDATELOCAL_GITDIR/\${word}/.git log --color --date=short --pretty=format:'%Cgreen%cd %h %Creset%s %Cred%d%Creset ||%b' ..FETCH_HEAD 2>/dev/null"
-# zstyle ':fzf-tab:complete:updatelocal:argument-rest' fzf-flags --preview-window=down:5:wrap
+# give a preview of commandline arguments when completing `kill`
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
   '[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap
+
+
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+
+# Show environment variables
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+	fzf-preview 'echo ${(P)word}'
+
+
+# Git
+zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
+	'git diff $word | delta'|
+zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
+	'git log --color=always $word'
+zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
+	'git help $word | bat -plman --color=always'
+zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
+	'case "$group" in
+	"commit tag") git show --color=always $word ;;
+	*) git show --color=always $word | delta ;;
+	esac'
+zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
+	'case "$group" in
+	"modified file") git diff $word | delta ;;
+	"recent commit object name") git show --color=always $word | delta ;;
+	*) git log --color=always $word ;;
+	esac'
+
+
+
+# TODO: move this to specific area for previews
+# zstyle ':fzf-tab:complete:launchctl-*:*' fzf-preview 'launchctl list $word'
+
 
 #█▓▒░ Plugins and completions seperated by loading order
 

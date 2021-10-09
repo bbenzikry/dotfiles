@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+# This is used for fzf-tab use and defines how to handle different "categories"
+mime=$(file -bL --mime-type "$1")
+category=${mime%%/*}
+kind=${mime##*/}
+if [ -d "$1" ]; then
+	exa --git -hl --color=always --icons "$1"
+elif [ "$category" = image ]; then
+    # There's a problem with fzf-tab here. 
+	# viu -h 50 -w 50 -b "$1" 2>/dev/null
+    # img2sixel $1 2> /dev/null
+	exiftool "$1"
+elif [ "$kind" = vnd.openxmlformats-officedocument.spreadsheetml.sheet ] || \
+	[ "$kind" = vnd.ms-excel ]; then
+	in2csv "$1" | xsv table | bat -ltsv --color=always
+elif [ "$category" = text ]; then
+	bat --color=always "$1"
+else
+	lesspipe.sh "$1" | bat --color=always
+fi
+# lesspipe.sh don't use exa, bat and chafa, it use ls and exiftool. so we create a lessfilter.
