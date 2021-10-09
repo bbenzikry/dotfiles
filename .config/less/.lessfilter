@@ -6,7 +6,7 @@ kind=${mime##*/}
 if [ -d "$1" ]; then
 	exa --git -hl --color=always --icons "$1"
 elif [ "$category" = image ]; then
-    # There's a problem with fzf-tab here. 
+    # problem with fzf-tab here ( see: https://github.com/junegunn/fzf/issues/1102#issuecomment-493685856)
 	# viu -h 50 -w 50 -b "$1" 2>/dev/null
     # img2sixel $1 2> /dev/null
 	exiftool "$1"
