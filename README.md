@@ -14,14 +14,14 @@
 
 **Table of Contents**
 
-- [Basic features](#basic-features)
+- [Features](#features)
 - [Usage](#usage)
 - [(☞ ͡° ͜ʖ ͡°)☞ Get in touch](#%E2%98%9E-%CD%A1%C2%B0-%CD%9C%CA%96-%CD%A1%C2%B0%E2%98%9E-get-in-touch)
 - [Screenshots](#screenshots)
 - [Basis and recognition](#basis-and-recognition)
 - [Notes](#notes)
 
-## Basic features
+## Features
 * Designed for polyglot work ( mostly Go, Clojure, Python, Scala, Node/React/GraphQL, Rust )
 * Snazzy-esque theme in simple-bar / vscode / nvim / tmux / Terminal / iTerm / Alfred
 * Neovim color scheme: [snazzybuddy.nvim](https://github.com/bbenzikry/snazzybuddy.nvim)
