@@ -25,3 +25,4 @@ github.com/kisielk/godepgraph
 github.com/schollz/croc/v8
 github.com/motemen/gore/cmd/gore // repl
 cuelang.org/go/cmd/cue@latest
+//github.com/golang-migrate/migrate/v4/cmd/migrate@latest

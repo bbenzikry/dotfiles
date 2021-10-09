@@ -23,3 +23,4 @@ direnv 2.27.0
 dotnet-core 6.0.100-preview.3.21202.5
 solidity latest
 flux2 0.16.1
+istioctl 1.11.3
