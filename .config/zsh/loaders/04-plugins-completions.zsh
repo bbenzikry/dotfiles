@@ -45,7 +45,7 @@ zstyle ':fzf-tab:complete:(cd|ls|exa):argument-rest' fzf-flags --preview-window=
 
 # TODO: change preview to nnn based preview or add support for iTerm protocol in fzf ( when I have time )
 # example wanted for fzf in preview is: viu -- $realpath 2>/dev/null || 
-zstyle ':fzf-tab:complete:((nano|cp|rm):argument-rest|vscode-insiders:*)' fzf-preview 'bat --color=always -- $realpath 2>/dev/null || ls --color=always -- $realpath'
+zstyle ':fzf-tab:complete:((cat|bat|nano|nvim|vim|cp|rm):argument-rest|vscode-insiders:*)' fzf-preview 'bat --color=always -- $realpath 2>/dev/null || ls --color=always -- $realpath'
 zstyle ':fzf-tab:complete:nano:argument-rest' fzf-flags --preview-window=right:65%
 
 # zstyle ':fzf-tab:complete:updatelocal:argument-rest' fzf-preview "git --git-dir=$UPDATELOCAL_GITDIR/\${word}/.git log --color --date=short --pretty=format:'%Cgreen%cd %h %Creset%s %Cred%d%Creset ||%b' ..FETCH_HEAD 2>/dev/null"
