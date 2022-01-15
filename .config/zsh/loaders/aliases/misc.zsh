@@ -14,3 +14,5 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 alias bell='tput bel'
 alias j="jobs"
+
+alias lowercase='dd conv=lcase 2> /dev/null'

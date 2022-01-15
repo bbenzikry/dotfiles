@@ -1,7 +1,6 @@
 {
     "razor.disabled": true, // See: https://github.com/OmniSharp/omnisharp-vscode/issues/4350
     "workbench.startupEditor": "none",
-    "go.useLanguageServer": true,
     "python.languageServer": "Pylance",
     "jupyter.sendSelectionToInteractiveWindow": false,
     "rust-client.engine": "rust-analyzer",
@@ -137,5 +136,7 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
-    "window.zoomLevel": -1
+    "telemetry.telemetryLevel": "off",
+    "window.zoomLevel": -1,
+    "vsicons.dontShowNewVersionMessage": true
 }

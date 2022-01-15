@@ -10,7 +10,7 @@
 
 
 cd "$(dirname "${BASH_SOURCE[0]}")" 
-. "./utils/main.sh"
+. "../utils/main.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

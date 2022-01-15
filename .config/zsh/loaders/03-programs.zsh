@@ -99,7 +99,9 @@ zt 0c light-mode null for \
     lbin'!' atclone'./build.zsh' atpull'%atclone' \
         zunit-zsh/zunit \
     atclone'mkdir -p $HOME/.config/tmux/plugins/tpm; ln -sf $PWD/tmux-plugins---tpm $HOME/.config/tmux/plugins/tpm' atpull'%atclone' \
-        tmux-plugins/tpm
+        tmux-plugins/tpm \
+        atclone'./mvnw package -Dskip.docbkx=true' atpull'%atclone' julianhyde/sqlline
+
     # installing via brew for now, readline is symlinked to /opt
     # atclone'autoreconf --install && ./configure --prefix=$ZPFX' make'PREFIX=$ZPFX' lbin'rlwrap' hanslub42/rlwrap
 
