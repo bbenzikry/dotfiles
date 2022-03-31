@@ -1,5 +1,5 @@
 nodejs 16.10.0
-rust 1.55.0
+rust nightly
 clojure 1.10.2.774
 elixir 1.11.3-otp-23
 java openjdk-11
