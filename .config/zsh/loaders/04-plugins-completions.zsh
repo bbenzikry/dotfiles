@@ -142,7 +142,7 @@ zt 0a light-mode for \
     ver'master' atload'_zsh_autosuggest_start' \
         zsh-users/zsh-autosuggestions \
     as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras \
-    id-as"direnv_completion" as'completion' atclone"direnv complete zsh > _direnv" atpull"%atclone" run-atpull zdharma/null
+    id-as"direnv_completion" as'completion' atclone"direnv complete zsh > _direnv" atpull"%atclone" run-atpull bbenzikry/null
 
 
 
@@ -164,13 +164,13 @@ zt 0b light-mode reset nocompile'!' for \
         hlissner/zsh-autopair \
         bbenzikry/per-directory-history \
     compile'h*' \
-        zdharma/history-search-multi-word \
+        bbenzikry/history-search-multi-word \
     blockf nocompletions compile'functions/*~*.zwc' \
         marlonrichert/zsh-edit \
     atinit'zicompinit_fast; zicdreplay' atload'FAST_HIGHLIGHT[chroma-man]=' \
     atclone'(){local f;cd -q →*;for f (*~*.zwc){zcompile -Uz -- ${f}};}' \
     compile'.*fast*~*.zwc' nocompletions atpull'%atclone' patch"${ZINIT_PATCHES}/%PLUGIN%.patch" \
-        zdharma/fast-syntax-highlighting
+        bbenzikry/fast-syntax-highlighting
 
 zt 0b light-mode for \
     blockf compile'lib/*f*~*.zwc' \

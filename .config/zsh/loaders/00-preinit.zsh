@@ -10,7 +10,7 @@
 
 
 #█▓▒░ Shut everything up until we're done
-stty -echo
+# stty -echo
 
 #█▓▒░ For profiling
 
@@ -19,7 +19,7 @@ zmodload zsh/zprof
 fi
 
 if [[ ! -z $ZINIT_DEBUGGING ]]; then
-typeset -g ZPLG_MOD_DEBUG=1
+typeset -g ZINIT_MOD_DEBUG=1
 fi
 
 #█▓▒░ Emacs bindings for the terminal itself (can't live without ^A/^E in term)

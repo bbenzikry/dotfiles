@@ -8,7 +8,7 @@
 # ░░░░░░ ░░░░░░  ░░   ░░  
 
 # chpwd hooks for custom issues
-
+# TODO: do something about this, it doesn't work as well as I'd like to
 conda_zsh_hook(){
     # We do this in case the conda trigger hook(zinit) runs
     command -v conda > /dev/null 2>&1

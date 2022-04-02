@@ -28,7 +28,7 @@ fi
 #   4) completions starting with _ are automatically inferred, those that don't need are directly mv'ed or downloaded
 #   5) Items that are not based or a release or have a common ice pick structure are seperated to their own area ( on the same level - 0c)
 zt 0c light-mode binary from'gh-r' lman lbin'!' for \
-    atpull'%atclone' atclone'mv completions.zsh _exa' dl'https://raw.githubusercontent.com/ogham/exa/master/completions/completions.zsh' mv"exa* -> exa"   ogham/exa \
+    mv"exa* -> exa"   ogham/exa \
     atclone'mv -f **/*.zsh _bat' atpull'%atclone' mv"bat* -> bat"               @sharkdp/bat \
     mv"ripgrep* -> rg"                                                    BurntSushi/ripgrep \
     mv"delta* -> delta" dl'https://raw.githubusercontent.com/dandavison/delta/master/etc/completion/completion.zsh' atclone'mv completion.zsh _delta' atpull'%atclone'  dandavison/delta \
@@ -116,7 +116,7 @@ zt 0c light-mode null for \
 zt 0c light-mode ver'latest' null nocompile for \
 from'gh-r' id-as"omnisharp" bpick'omnisharp-osx.tar.gz' sbin'run -> omnisharp' atpull"%atclone" OmniSharp/omnisharp-roslyn \
 id-as"netcoredbg" atpull'%atclone' atclone'build-netcoredbg' sbin'bin/netcoredbg' Samsung/netcoredbg \
-id-as"vsdbg" lbin'!vsdbg' lbin'!vsdbg-ui' atclone'download-vsdbg $(pwd)' zdharma/null \
+id-as"vsdbg" lbin'!vsdbg' lbin'!vsdbg-ui' atclone'download-vsdbg $(pwd)' zdharma-continuum/null \
 id-as'abs-lang' from'gh-r' lbin'!abs-lang' bpick'*darwin*' mv'abs* -> abs-lang' abs-lang/abs \
 id-as'dex-tools' from'gh-r' pxb1988/dex2jar \
 id-as'cfr-decompiler' from'gh-r' leibnitz27/cfr

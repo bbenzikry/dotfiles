@@ -32,30 +32,38 @@ prezto_module() {
   zinit snippet PZT::module/$1
 }
 
-
-
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+ZINIT_MODULE_DIR="$(dirname $ZINIT_HOME)/module/Src"
 
 ## initial source
-source ~/.zinit/bin/zinit.zsh
+source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # A binary Zsh module which transparently and automatically compiles sourced scripts
-module_path+=( "${HOME}/.zinit/bin/zmodules/Src" )
-zmodload zdharma/zplugin &>/dev/null
+module_path+=( "$ZINIT_MODULE_DIR" )
+zmodload zdharma_continuum/zinit # &>/dev/null
+
+_null_plug_dir=${ZINIT[PLUGINS_DIR]}/_local---null
+if [[ ! -d $_null_plug_dir ]]; then
+  echo "Creating zplugin 'null' plugin directory at: $_null_plug_dir"
+  mkdir -p -- "$_null_plug_dir"
+fi
+unset _null_plug_dir
 
 # zinit annexes (https://zdharma.org/zinit/wiki/Annexes/) 
+# TODO: fork all annexes
 zinit light-mode for \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-bin-gem-node \
-    zinit-zsh/z-a-submods \
-    NICHOLAS85/z-a-linkman \
-    NICHOLAS85/z-a-linkbin
+    zdharma-continuum/z-a-patch-dl \
+    zdharma-continuum/z-a-as-monitor \
+    zdharma-continuum/z-a-bin-gem-node \
+    zdharma-continuum/z-a-submods \
+    bbenzikry/z-a-linkman \
+    bbenzikry/z-a-linkbin
 
 # load local zinit configuration (see: https://github.com/NICHOLAS85/dotfiles )
-zt light-mode blockf id-as for \
-        $HOME/.zinit/snippets/config
+# zt light-mode blockf id-as for \
+#         $HOME/.zinit/snippets/config
     
 # TODO: Update zinit if needed
 # zinit self-update --quiet
