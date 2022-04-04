@@ -32,11 +32,11 @@ prezto_module() {
   zinit snippet PZT::module/$1
 }
 
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-ZINIT_MODULE_DIR="$(dirname $ZINIT_HOME)/module/Src"
-
 ## initial source
 source "${ZINIT_HOME}/zinit.zsh"
+export ZINIT[ZCOMPDUMP_PATH]="${ZSH_CACHE_DIR:-${XDG_CACHE_HOME:-$HOME/.cache/zinit}}/zcompdump-${HOST/.*/}-${ZSH_VERSION}"
+
+
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -51,6 +51,10 @@ if [[ ! -d $_null_plug_dir ]]; then
 fi
 unset _null_plug_dir
 
+
+zinit light-mode blockf id-as"localconf" for \
+        "$(dirname $ZINIT_HOME)/snippets/config"
+
 # zinit annexes (https://zdharma.org/zinit/wiki/Annexes/) 
 # TODO: fork all annexes
 zinit light-mode for \
@@ -62,8 +66,8 @@ zinit light-mode for \
     bbenzikry/z-a-linkbin
 
 # load local zinit configuration (see: https://github.com/NICHOLAS85/dotfiles )
-# zt light-mode blockf id-as for \
-#         $HOME/.zinit/snippets/config
+# zinit light-mode blockf for \ 
+#   $ZINIT_HOME/.zinit/snippets/config
     
 # TODO: Update zinit if needed
 # zinit self-update --quiet

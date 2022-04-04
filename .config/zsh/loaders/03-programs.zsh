@@ -53,7 +53,9 @@ zt 0c light-mode binary from'gh-r' lman lbin'!' for \
 zt 0c light-mode null from"gh-r" for \
     has'bat'  pick'src/*'  eth-p/bat-extras \
     lman lbin"!**/nvim" bpick'*macos*' neovim/neovim \
-    lman mv"rust-analyzer-mac->rust-analyzer" lbin"!rust-analyzer" bpick'rust-analyzer-mac' rust-analyzer/rust-analyzer
+    lman mv"rust-analyzer-x86_64-apple-darwin->rust-analyzer" lbin"!rust-analyzer" rust-analyzer/rust-analyzer
+    # TODO: https://github.com/XAMPPRocky/tokei
+    # TODO: https://github.com/dalance/procs
 
 
 # Consider this for libvterm image use - doesn't seem to work at the moment.
@@ -83,12 +85,13 @@ zt 0c light-mode null nocompile lbin'!' for \
     paulirish/git-open
 
 
+# no longer using nnn
 # Note: we're compiling nnn with nerd font support for macos. requires O_PCRE=1. plugins are downloaded atclone.
-zt 0c light-mode binary for \
-    lbin'!' reset \
-        kazhala/dotbare \
-    ver'master' make'!PREFIX=$ZPFX O_PCRE=1 O_NERD=1' atclone"curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh" atpull'%atclone' \
-    jarun/nnn
+# zt 0c light-mode binary for \
+#     lbin'!' reset \
+#         kazhala/dotbare \
+#     ver'master' make'!PREFIX=$ZPFX O_PCRE=1 O_NERD=1' atclone"curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh" atpull'%atclone' \
+#     jarun/nnn
 
 
 zt 0c light-mode null for \

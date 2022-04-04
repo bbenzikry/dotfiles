@@ -189,11 +189,12 @@ zt 0b light-mode for \
 # Snippet completions
 zt 0b as"completion" for \
     https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker \
-    mv'zsh_tealdeer -> _tldr' https://github.com/dbrgn/tealdeer/blob/master/zsh_tealdeer \
-    https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rust \
+    mv'zsh_tealdeer -> _tldr' https://github.com/dbrgn/tealdeer/blob/main/completion/zsh_tealdeer \
+    https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/rust/_rustc \
     https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo \
-    https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq \
-    mv'zsh -> _coursier' https://github.com/coursier/coursier/blob/master/modules/cli/src/main/resources/completions/zsh
+    https://github.com/x-motemen/ghq/blob/master/misc/zsh/_ghq
+    # old completions for coursier
+    # mv'zsh -> _coursier' https://github.com/coursier/coursier/blob/master/modules/cli/src/main/resources/completions/zsh
 
 
 
@@ -213,7 +214,7 @@ zt 0b as"completion" for \
 zt 0c light-mode as"null" atload'autoload -Uz $PWD/crash && crash register' for molovo/crash
 
 zt 0c light-mode null for \
-id-as'Cleanup' is-snippet atinit'_zsh_autosuggest_bind_widgets; eval "$(asdf exec direnv hook zsh)"' \
+id-as'Cleanup' is-snippet atinit'_zsh_highlight_bind_widgets; _zsh_autosuggest_bind_widgets; eval "$(asdf exec direnv hook zsh)"' \
         /dev/null
 
     # TODO: marlonrichert/zsh-autocomplete \
