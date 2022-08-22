@@ -58,12 +58,13 @@ zinit light-mode blockf id-as"localconf" for \
 # zinit annexes (https://zdharma.org/zinit/wiki/Annexes/) 
 # TODO: fork all annexes
 zinit light-mode for \
-    zdharma-continuum/z-a-patch-dl \
-    zdharma-continuum/z-a-as-monitor \
-    zdharma-continuum/z-a-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/z-a-submods \
-    bbenzikry/z-a-linkman \
-    bbenzikry/z-a-linkbin
+    bbenzikry/zinit-annex-linkman \
+    zdharma-continuum/zinit-annex-binary-symlink
+
 
 # load local zinit configuration (see: https://github.com/NICHOLAS85/dotfiles )
 # zinit light-mode blockf for \ 

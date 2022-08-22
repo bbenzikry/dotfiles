@@ -1,5 +1,6 @@
 export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-export ZINIT_MODULE_DIR="$(dirname $ZINIT_HOME)/module/Src"
+export ZINIT_MODULE_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/module/Src"
+
 # export ZINIT[HOME_DIR]="$HOME/.zinit"
 # export ZINIT[HOME_DIR]="$HOME/.local/share/zinit"
 # export ZINIT[PLUGINS_DIR]="$ZINIT[HOME_DIR]/plugins"

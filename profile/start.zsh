@@ -15,6 +15,7 @@ CURDIR=$(dirname $0)
 # Note that while this uses zsh, in contrast to .zshenv, this is supposed to run well on other shells
 # Don't run again.
 if [ -n "$PROFILE_SET" ]; then
+	echo "ALREADY SET"
 	exit
 fi
 
@@ -36,7 +37,7 @@ for profile ($CURDIR/[0-9][0-9]*) source $profile
 
 
 # Load environments, remember to base them on XDG
-environments=("brew" "tmux" "docker" "ruby" "ghq" "c" "haskell" "go" "rust" "java" "scala" \
+environments=("zinit" "brew" "tmux" "docker" "ruby" "ghq" "c" "haskell" "go" "rust" "java" "scala" \
 "clojure" "scala" "spark" "python" "node" "perl" "wasm" "nnn" "general" "wakatime" "android" "aws" "nvim" "dotnet" "redis" "other" "local" "mac" "k8s" "less")
 
 for env in $environments; do
@@ -45,3 +46,4 @@ done
 
 . "$EXEC_DIR/common/main.sh"
 . "$CURDIR/path.zsh"
+
