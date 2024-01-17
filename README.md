@@ -63,7 +63,7 @@ Also spits out red dwarf themed insults when typing the wrong command
 git clone --bare https://github.com/bbenzikry/dotfiles --branch m3 ~/dotfiles
 # alias is provided by default after reload
 alias dotfiles="GIT_WORK_TREE=~ GIT_DIR=~/dotfiles"
-dotfiles checkout
+dotfiles git checkout
 
 # Bootstrapping
 <<c
