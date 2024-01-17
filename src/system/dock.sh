@@ -21,8 +21,8 @@ defaults write com.apple.dock mouse-over-hilite-stack -bool true;ok
 running "Set the icon size of Dock items to 36 pixels"
 defaults write com.apple.dock tilesize -int 36;ok
 
-running "Change minimize/maximize window effect to scale"
-defaults write com.apple.dock mineffect -string "scale";ok
+running "Change minimize/maximize window effect to genie"
+defaults write com.apple.dock mineffect -string "genie";ok
 
 running "Minimize windows into their application’s icon"
 defaults write com.apple.dock minimize-to-application -bool true;ok
@@ -52,8 +52,8 @@ defaults write com.apple.dock dashboard-in-overlay -bool true;ok
 running "Don’t automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false;ok
 
-running "Remove the auto-hiding Dock delay"
-defaults write com.apple.dock autohide-delay -float 0;ok
+running "Set dock delay"
+defaults write com.apple.dock autohide-delay -float 0.2;ok
 running "Remove the animation when hiding/showing the Dock"
 defaults write com.apple.dock autohide-time-modifier -float 0;ok
 
@@ -65,6 +65,9 @@ defaults write com.apple.dock showhidden -bool true;ok
 
 running "Make Dock more transparent"
 defaults write com.apple.dock hide-mirror -bool true;ok
+
+running "Set magnification size" 
+defaults write com.apple.dock largesize -integer 75; ok
 
 running "Don't show recents in dock."
 defaults write com.apple.dock show-recents -bool false;
@@ -87,16 +90,20 @@ print_in_purple "Configuring Hot Corners"
 # 11: Launchpad
 # 12: Notification Center
 
-running "Top left screen corner → Mission Control"
-defaults write com.apple.dock wvous-tl-corner -int 2
+
+
+
+running "Top left screen corner → Screen saver"
+defaults write com.apple.dock wvous-tl-corner -int 5
 defaults write com.apple.dock wvous-tl-modifier -int 0;ok
+
 running "Top right screen corner → Desktop"
 defaults write com.apple.dock wvous-tr-corner -int 4
 defaults write com.apple.dock wvous-tr-modifier -int 0;ok
-# running "print_in_purpletom right screen corner → Start screen saver"
-# defaults write com.apple.dock wvous-br-corner -int 5
-# defaults write com.apple.dock wvous-br-modifier -int 0;ok
 
+running "Bottom right screen corner → Mission Control"
+defaults write com.apple.dock wvous-br-corner -int 2
+defaults write com.apple.dock wvous-br-modifier -int 0;ok
 
 print_in_purple "Auto hide menu bar"
 defaults write NSGlobalDomain _HIHideMenuBar -bool true

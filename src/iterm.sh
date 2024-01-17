@@ -1,1 +1,0 @@
-# TODO: install iterm shell integration

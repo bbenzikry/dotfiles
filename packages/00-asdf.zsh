@@ -32,12 +32,13 @@ if [[ ! -e "$ASDF_DEFAULT_TOOL_VERSIONS_FILENAME" ]] || [[ $1='force' ]]; then
         "kubectl";
         do
         asdf plugin-add ${app}
-        asdf install ${app} latest
-        asdf global ${app} latest
+        # Uncomment to auto install languages. I prefer this lazily.
+        # asdf install ${app} latest
+        # asdf global ${app} latest
     done
     asdf plugin-add nodejs
     # Check signature for release
-    bash -c '${ASDF_DATA_DIR:=$HOME/.local/share/asdf}/plugins/nodejs/bin/import-release-team-keyring'
-    asdf install nodejs latest
+    # bash -c '${ASDF_DATA_DIR:=$HOME/.local/share/asdf}/plugins/nodejs/bin/import-release-team-keyring'
+    # asdf install nodejs latest
 
 fi

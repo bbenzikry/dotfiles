@@ -49,12 +49,13 @@ ask_for_confirmation "Do you want to install Stackline for yabai? [y|N]"
 fi
 
 
-if [[ ! -d "$XDG_CONFIG_HOME/ubersicht/simple-bar" ]]; then
-ask_for_confirmation "Do you want to install simple bar with snazzy theme for Übersicht / yabai? [y|N]"
-  if answer_is_yes; then 
-    print_in_purple "Cloning simple-bar to Übersicht dir"
-    mkdir -p "$XDG_CONFIG_HOME/ubersicht"
-    git clone https://github.com/bbenzikry/simple-bar -b snazzy "$XDG_CONFIG_HOME/ubersicht/simple-bar"
-    print_in_green "Cloned simple-bar"
-  fi
-fi
+# Removed perf
+# if [[ ! -d "$XDG_CONFIG_HOME/ubersicht/simple-bar" ]]; then
+# ask_for_confirmation "Do you want to install simple bar with snazzy theme for Übersicht / yabai? [y|N]"
+#   if answer_is_yes; then 
+#     print_in_purple "Cloning simple-bar to Übersicht dir"
+#     mkdir -p "$XDG_CONFIG_HOME/ubersicht"
+#     git clone https://github.com/bbenzikry/simple-bar -b snazzy "$XDG_CONFIG_HOME/ubersicht/simple-bar"
+#     print_in_green "Cloned simple-bar"
+#   fi
+# fi

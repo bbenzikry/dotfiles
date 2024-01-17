@@ -175,12 +175,9 @@ zt 0b light-mode reset nocompile'!' for \
 zt 0b light-mode for \
     blockf compile'lib/*f*~*.zwc' \
         Aloxaf/fzf-tab \
-    autoload'#manydots-magic' \
-        knu/zsh-manydots-magic \
         RobSis/zsh-reentry-hook \
     MichaelAquilina/zsh-you-should-use \
     pick'src/bash.command-not-found' \
-    hkbakke/bash-insulter \
     atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B"  history-substring-search-down' \
         zsh-users/zsh-history-substring-search \
     wakeful/zsh-packer
@@ -217,10 +214,8 @@ zt 0c light-mode null for \
 id-as'Cleanup' is-snippet atinit'_zsh_highlight_bind_widgets; _zsh_autosuggest_bind_widgets; eval "$(asdf exec direnv hook zsh)"' \
         /dev/null
 
-    # TODO: marlonrichert/zsh-autocomplete \
-
+# TODO: marlonrichert/zsh-autocomplete \
 # zinit ice from"gh-pr" as"program"
-
 
 # direnv is installed via asdf plugin, to properly manage all kinds of problems with environments by shims. 
 # What currently bothers me the most is the fact that conda elements shadow clear and other items :/

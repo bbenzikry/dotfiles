@@ -55,7 +55,7 @@ ok
 ./input.sh
 ./ssd.sh
 ./finder.sh
-./spotlight.sh
+# ./spotlight.sh
 ./security.sh
 ./appstore.sh
 ./dock.sh

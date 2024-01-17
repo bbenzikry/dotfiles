@@ -114,4 +114,4 @@ sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMultica
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Disable airdrop
-defaults write com.apple.NetworkBrowser DisableAirDrop -bool YES
+# defaults write com.apple.NetworkBrowser DisableAirDrop -bool YES

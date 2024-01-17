@@ -6,8 +6,6 @@
     "rust-client.engine": "rust-analyzer",
     "omnisharp.useGlobalMono": "never",
     "explorer.autoReveal": "focusNoScroll",
-    // "omnisharp.useGlobalMono": "always",
-    // "omnisharp.loggingLevel": "trace",
     "omnisharp.projectLoadTimeout": 3000,
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.enableDecompilationSupport": true,
@@ -73,17 +71,18 @@
     ],
     "editor.formatOnSave": true,
     "editor.fontLigatures": true,
-    // "editor.fontFamily": "FantasqueSansMono Nerd Font Mono",
     "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontSize": 14,
     "breadcrumbs.enabled": true,
     "terminal.integrated.fontSize": 18,
+    
     "editor.quickSuggestions": {
         "other": true,
         "comments": false,
         "strings": false,
         "javascript": true,
         "markdown": true
+
     },
     "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "go.formatTool": "gofmt",
@@ -123,20 +122,17 @@
     "calva.paredit.defaultKeyMap": "strict",
     "editor.semanticHighlighting.enabled": true,
     "Lua.telemetry.enable": false,
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
+
+    "telemetry.telemtryLevel": "off",
     "go.toolsManagement.autoUpdate": true,
-    "solidity.compileUsingRemoteVersion": "v0.8.0+commit.c7dfd78e",
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "solidity.formatter": "none",
     "typescript.updateImportsOnFileMove.enabled": "never",
     "[typescriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
-    "telemetry.telemetryLevel": "off",
     "window.zoomLevel": -1,
     "vsicons.dontShowNewVersionMessage": true
 }

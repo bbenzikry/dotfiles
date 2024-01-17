@@ -60,7 +60,7 @@ Also spits out red dwarf themed insults when typing the wrong command
 
 ## Usage
 ```bash
-git clone --bare https://github.com/bbenzikry/dotfiles ~/dotfiles
+git clone --bare https://github.com/bbenzikry/dotfiles --branch m3 ~/dotfiles
 # alias is provided by default after reload
 alias dotfiles="GIT_WORK_TREE=~ GIT_DIR=~/dotfiles"
 dotfiles checkout
@@ -68,7 +68,6 @@ dotfiles checkout
 # Bootstrapping
 <<c
 Same as make install.
-Makefile will be removed soon.
 Interactive installation, will install brew packages and configure macos defaults.
 Will ask for sudo.
 c
@@ -104,8 +103,7 @@ task install-packages # Installs ASDF global languages, python global tooling ( 
 
 
 ## Notes
-* default packages for rust, dotnet and go are pending PRs to individual asdf repos
 * any ASCII art used is probably generated with figlet
 * If you experience slow prompt load and keep settings related to asdf and java, precmd hooks used in the asdf java plugin are the culprit. you can remove the precmd or comment it out ( probably at ``~/.local/share/asdf/plugins/java/set-java-home.zsh``)
-* See [nvim config](./.config/nvim) for FAQ on my configuration
+* See [nvim config](./.config/nvim) for FAQ on my configuration ( unmaintained for silicone, in progress )
 * Depending on where you run this from, [Ghidra](https://ghidra-sre.org) may fail to install from brew. If that's the case, download the appropriate release from https://github.com/NationalSecurityAgency/ghidra/releases and ``mv ZIP_FILE $(brew cache --prefix ghidra)`` - installation should be OK after that.

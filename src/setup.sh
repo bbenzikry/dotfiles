@@ -108,7 +108,7 @@ main() {
     ./asdf.sh
 
     # - - - - - - - - - Install spacemacs - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-    ./spacemacs.sh
+    # ./spacemacs.sh
 
     # - - - - - - - - - - - - - - - - Zsh - - - - - - - - - - - - - - - - - - - - - 
 
@@ -122,7 +122,7 @@ main() {
 
     # - - - - - - - - - - - - Post installation hooks - - - - - - - - - - - - - - - - - 
 
-    ./post/main.sh
+    # ./post/main.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     ./finish.sh

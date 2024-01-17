@@ -24,5 +24,4 @@
 # rustup default nightly
 # rustup update
 # cargo install cargo-update
-
-cargo_build_ghq https://github.com/nushell/nushell --workspace --features=extra
+# cargo_build_ghq https://github.com/nushell/nushell --workspace --features=extra

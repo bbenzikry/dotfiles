@@ -61,10 +61,13 @@ neofetch_start(){
 
 precmd_functions+=(set_win_title)
 
+## Starship installation ( deprecated, moved to brew )
+    # has"cargo" ver"master" atclone'cargo build --release' atpull'%atclone' lbin'!target/release/starship -> starship' atload'!starship_standalone' \
+    # starship/starship \
+
+
 #█▓▒░ Starship prompt, neofetch, hacker-quotes
 zinit as"null" lucid for \
-    has"cargo" ver"master" atclone'cargo build --release' atpull'%atclone' lbin'!target/release/starship -> starship' atload'!starship_standalone' \
-    starship/starship \
     has"starship" as"completion" id-as"starship_completions" atclone"starship completions zsh > _starship" zdharma/null \
     lbin'!neofetch' atload"!neofetch_start" atclone"cp neofetch.1 ${ZPFX}/man/man1" atpull'%atclone' \
     dylanaraps/neofetch

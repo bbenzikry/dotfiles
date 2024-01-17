@@ -59,7 +59,7 @@ zinit light-mode blockf id-as"localconf" for \
 # TODO: fork all annexes
 zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-readurl \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/z-a-submods \
     bbenzikry/zinit-annex-linkman \
