@@ -19,13 +19,14 @@ if [ -n "$PROFILE_SET" ]; then
 	exit
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # We start with ASDF for all downstream tasks.
 . $CURDIR/envs/asdf.zsh
 if ! command -v asdf >/dev/null 2>&1; 
 then 
     export PATH="$PATH:$ASDF_DIR/bin"
-    . $ASDF_DIR/lib/asdf.sh
+    . $ASDF_DIR/asdf.sh
 fi
 
 export CODE_ROOT="$HOME/code"

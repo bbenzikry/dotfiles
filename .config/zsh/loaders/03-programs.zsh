@@ -10,15 +10,15 @@
 #█▓▒░ Executables directly downloaded via zinit
 
 
-# We source lib/asdf instead of asdf directly to prevent shim addition to path. 
-# shims are added via .envrc / direnv individually using the ``use asdf`` call ( see: https://github.com/asdf-community/asdf-direnv)
-# or directly to the path during profile initialization ( see asdf.zsh in profile/paths )
-if command -v asdf >/dev/null 2>&1; 
-then 
-. $ASDF_DIR/lib/asdf.sh
-# Note: back to sourcing ASDF directly for now. 
-# . "$ASDF_DIR/asdf.sh"
-fi
+# # We source lib/asdf instead of asdf directly to prevent shim addition to path. 
+# # shims are added via .envrc / direnv individually using the ``use asdf`` call ( see: https://github.com/asdf-community/asdf-direnv)
+# # or directly to the path during profile initialization ( see asdf.zsh in profile/paths )
+# if command -v asdf >/dev/null 2>&1; 
+# then 
+# . $ASDF_DIR/asdf.sh
+# # Note: back to sourcing ASDF directly for now. 
+# # . "$ASDF_DIR/asdf.sh"
+# fi
 
 
 ## removed: installed from brew

@@ -13,10 +13,10 @@ if ! $SKIPQUESTIONS; then
 fi
 
 execute "sudo cp -f /etc/hosts /etc/hosts.backup" "Copying backup to /etc/hosts.backup"
-execute "sudo cp -f ../config/hosts /etc/hosts" "Replacing with ../config/hosts"
-execute "echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts" "Adding local hostname to hosts"
+execute "sudo cp -f ./config/hosts /etc/hosts" "Replacing with ./config/hosts"
+execute "echo $(ipconfig getifaddr en0) $(hostname) | sudo tee -a /etc/hosts" "Adding local hostname to hosts"
 print_in_purple "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
-print_in_purple "Hostfile version was $(grep "Last updated" ../config/hosts | cut -d' ' -f2-9)"
+print_in_purple "Hostfile version was $(grep "Last updated" ./config/hosts | cut -d' ' -f2-9)"
 }
 
 main "$@"

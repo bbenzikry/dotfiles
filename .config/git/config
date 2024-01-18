@@ -135,7 +135,8 @@
     autocrlf = input
     editor = vim
     excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	# pager = diff-so-fancy | less --tabs=4 -RFX
+        pager = delta
 
 [diff]
 
@@ -194,13 +195,19 @@
 	includeIssuesSection = false
 
 [pager]
-  diff = false
+  diff = true
 [gpg]
 	program = gpg
 [tag]
 	forceSignAnnotated = true
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	#diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+	side-by-side = true
+
 [color]
 	ui = true
 [color "diff-highlight"]

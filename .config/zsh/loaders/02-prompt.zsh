@@ -68,7 +68,7 @@ precmd_functions+=(set_win_title)
 
 #█▓▒░ Starship prompt, neofetch, hacker-quotes
 zinit as"null" lucid for \
-    has"starship" as"completion" id-as"starship_completions" atclone"starship completions zsh > _starship" zdharma/null \
+    has"starship" as"completion" id-as"starship_completions" atclone"starship completions zsh > _starship" bbenzikry/null \
     lbin'!neofetch' atload"!neofetch_start" atclone"cp neofetch.1 ${ZPFX}/man/man1" atpull'%atclone' \
     dylanaraps/neofetch
 
@@ -85,4 +85,4 @@ atinit'chpwd_functions+=(chpwd_onefetch)' o2sh/onefetch
 
 # We want to load tmux but still see the image by neofetch, so load it after 
 # zt 1c atload'load_tmux' for \
-#     zdharma/null
+#     bbenzikry/null

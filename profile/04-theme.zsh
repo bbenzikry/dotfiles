@@ -12,7 +12,7 @@ export BAT_THEME="Sublime Snazzy"
 if (($+commands[vivid])); then
 # TODO: handle light mode for LS colors
 export LS_COLORS="$(vivid generate snazzy)"
-export EXA_COLORS="$(vivid generate snazzy)"
+export EZA_COLORS="$(vivid generate snazzy)"
 fi
 
 # fzf

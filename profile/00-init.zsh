@@ -16,7 +16,7 @@ export PAGER='less -X';
 export GPG_TTY=$(tty);
 
 #█▓▒░ editor
-export EDITOR="neovim"
+export EDITOR="nvim"
 export VISUAL="code-insiders -w"
 export DISABLE_MAGIC_FUNCTIONS=true
 

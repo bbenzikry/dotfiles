@@ -38,11 +38,14 @@ fi
 
 # NOTE: removed this as we're currently on latest version with big sur. 
 CURRENTSHELL=$(dscl . -read /Users/"$USER" UserShell | awk '{print $2}')
-if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
-  print_in_purple "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)\\n"
-
-  sudo dscl . -change /Users/"$USER" UserShell "$SHELL" /usr/local/bin/zsh > /dev/null 2>&1
-  ok
+if [[ "$CURRENTSHELL" != "/opt/homebrew/bin/zsh" ]]; then
+  if [[ -z "/opt/homebrew/bin/zsh" ]]; then
+	print_in_yellow "Homebrew zsh not found, leaving default."
+  else 
+	print_in_purple "setting newer homebrew zsh (/opt/homebrew/bin/zsh) as your shell (password required)\\n"
+	sudo dscl . -change /Users/"$USER" UserShell "$SHELL" /opt/homebrew/bin/zsh > /dev/null 2>&1
+    ok
+  fi
 fi
 
 require_brew cmake
