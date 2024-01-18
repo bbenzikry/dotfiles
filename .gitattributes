@@ -1,4 +1,10 @@
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.gif filter=lfs diff=lfs merge=lfs -text
-*.icns filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/images/ezel.png filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/images/holly-new-1.png filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/images/isra.avif filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/gifs/dayan.gif filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/gifs/il_flag.gif filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/images/anon.png filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/gifs/guillermo.gif filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/gifs/laszlo.gif filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/gifs/success.gif filter=lfs diff=lfs merge=lfs -text
+.config/bbenzikry/resources/gifs/colin.gif filter=lfs diff=lfs merge=lfs -text
