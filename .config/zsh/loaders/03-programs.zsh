@@ -67,8 +67,8 @@ zt 0c light-mode binary from'gh-r' lman lbin'!' for \
 
 # viu source build ( required for images to work properly outside of iterm )
 # Should be loaded before prompt for neofetch use
-# zinit light-mode null lman for \
-#     has"cargo" lbin'!target/release/viu' atclone"cargo install --path ." atpull'%atclone' atanunq/viu
+zinit light-mode null lman for \
+    has"cargo" lbin'!target/release/viu' atclone"cargo install --path ." atpull'%atclone' atanunq/viu
 
 
 # more shell executables
@@ -120,9 +120,11 @@ zt 0c light-mode binary from'gh-r' lman lbin'!' for \
 
 
 ### dex2jar and cfr decompiler for android and java reversing
-zt 0c light-mode ver'latest' null nocompile for \
-id-as'dex-tools' from'gh-r' pxb1988/dex2jar \
-id-as'cfr-decompiler' from'gh-r' leibnitz27/cfr
+# Moved to GHQ listing.
+
+# zt 0c light-mode ver'latest' null nocompile for \
+# id-as'dex-tools' from'gh-r' pxb1988/dex2jar \
+# id-as'cfr-decompiler' from'gh-r' leibnitz27/cfr
 
 ## Mac Debugging helpers
 zt 0c light-mode null nocompile for \

@@ -6,12 +6,22 @@ add_newline = false
 
 
 format = """
+
 $battery 
-[╭─](white)$username$hostname in $directory$package$terraform$golang$rust$nodejs$java$python$conda$scala$aws$custom
-[│](white)  $git_branch$git_commit$git_state$git_status$hg_branch
-[│](white)  $status$cmd_duration
-[╰─](white)$time$character
+[╭─](blue)$username$hostname in $directory$package$terraform$golang$rust$nodejs$java$python$conda$scala$aws$custom
+[│](purple)  $git_branch$git_commit$git_state$git_status$hg_branch
+[│](red)  $status$cmd_duration
+[╰─](yellow)$time$character
+
 """
+
+
+#format = """
+#[╭─user───❯](bold blue) $username
+#[┣─system─❯](bold yellow) $hostname
+#[┣─project❯](bold red) $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
+#[╰─cmd────❯](bold green) 
+#"""
 
 # TODO:$gcloud
 
@@ -24,18 +34,18 @@ style = "bold dimmed green"
 
 [hostname]
 ssh_only = true
-format =  "on [$hostname](bold red)"
+format = "on [$hostname](bold red)"
 # trim_at = ".companyname.com"
 disabled = false
 
 [battery]
-full_symbol = "🔋 "
-charging_symbol = "🔌 "
-discharging_symbol = "⚡ "
+full_symbol = "🔋  "
+charging_symbol = "🔌  "
+discharging_symbol = "🪫  "
 
-# [[battery.display]]
-# threshold = 100
-# style = "bold red"
+[[battery.display]]
+threshold = 100
+style = "bold red"
 
 [package]
 display_private = true
@@ -46,6 +56,9 @@ command = "echo 🐳"
 files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
 when = """ command -v docker &> /dev/null; exit (echo $?); """
 format = "with [$output]($style) "
+
+[os]
+disabled = false
 
 # TODO: hist type
 # [custom.history_type]
@@ -80,7 +93,7 @@ format = "[$read_only]($read_only_style)[$path]($style) "
 disabled = false
 
 [cmd_duration]
-min_time=500
+min_time = 500
 show_milliseconds = true
 style = "bold yellow"
 format = "took [$duration]($style)"
@@ -92,13 +105,13 @@ disabled = false
 
 
 [git_status]
-format='([$all_status$ahead_behind]($style) )'	
+format = '([$all_status$ahead_behind]($style) )'
 conflicted = "🏳"
 ahead = "🏎💨"
 behind = "😰"
 diverged = "😵"
 untracked = " 🤷 \\(${count}\\) "
-stashed = "📦 \\(${count}\\)(blue) " 
+stashed = "📦 \\(${count}\\)(blue) "
 modified = "[  \\(${count}\\) ](yellow bold)"
 staged = '[++$count](green)'
 deleted = "🗑 $count"
@@ -106,11 +119,11 @@ deleted = "🗑 $count"
 
 [time]
 disabled = false
-format = '🕙  [$time]($style) '
+format = '⏱️  [$time]($style) '
 
 [status]
 disabled = false
-format="[$symbol $status]($style) "
+format = "[$symbol $status]($style) "
 
 
 # See issue with %{%G<CHARACTER>%}

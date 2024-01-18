@@ -23,4 +23,4 @@ if [ -z "$PROFILE_SET" ]; then
 fi
 
 # Start zsh load
-# for config ($ZDOTDIR/loaders/*.zsh) source $config
+for config ($ZDOTDIR/loaders/*.zsh) source $config

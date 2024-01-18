@@ -39,22 +39,26 @@ starship_tmux(){
 }
 
 neofetch_start(){
-    images=($XDG_CONFIG_HOME/bbenzikry/resources/images/*.(png|jpg))
-    size=${#images[@]}
-    index=$((1 + $RANDOM%$size))
-    image=$images[$index]
+    # images=($XDG_CONFIG_HOME/bbenzikry/resources/images/*.(png|jpg))
+    # size=${#images[@]}
+    # index=$((1 + $RANDOM%$size))
+    # image=$images[$index]
+    # image="$XDG_CONFIG_HOME/bbenzikry/resources/images/anon.png"
+    image="$XDG_CONFIG_HOME/bbenzikry/resources/images/holly-new-1.png"
+    # image="$XDG_CONFIG_HOME/bbenzikry/resources/gifs/dayan.gif"
     if command -v viu > /dev/null; then 
         neofetch --viu "$image"
     else 
         neofetch
     fi
-    if command -v imgcat > /dev/null; then 
-        gifs=($XDG_CONFIG_HOME/bbenzikry/resources/gifs/*.gif)
-        size=${#gifs[@]}
-        index=$((1 + $RANDOM%$size))
-        gif=$gifs[$index]
-        imgcat "$gif"
-    fi
+    # if command -v imgcat > /dev/null; then 
+    #     gifs=($XDG_CONFIG_HOME/bbenzikry/resources/gifs/*.gif)
+    #     size=${#gifs[@]}
+    #     index=$((1 + $RANDOM%$size))
+    #     gif=$gifs[$index]
+    #     viu "$gif"
+    # fi
+    starship_standalone
 }
 
 
@@ -76,12 +80,21 @@ zinit as"null" lucid for \
 
 # zinit lucid null as"program" lbin'!' from"gh-r" for "th3Whit3Wolf/pquote"
 
-zinit binary lucid lbin'!**/pq' from"gh-r" for \
-pick"pq" atload'pq' bpick"*darwin*" "Th3Whit3Wolf/pquote"
+# zinit binary lucid lbin'!**/pq' from"gh-r" for \
+# pick"pq" atload'pq' bpick"*arm*" "Th3Whit3Wolf/pquote"
 
 # Note this happens post prompt
-zt 0c binary lbin'!' from'gh-r' for bpick'*mac*' \
+# zt 0c binary lbin'!' from'gh-r' for bpick'*mac*' \
+# atinit'chpwd_functions+=(chpwd_onefetch)' o2sh/onefetch
+
+zt 0c as"null" for atclone'cargo build --release' atpull'%atclone' lbin'!target/release/onefetch -> onefetch' \
 atinit'chpwd_functions+=(chpwd_onefetch)' o2sh/onefetch
+
+    # has"cargo" ver"master" atclone'cargo build --release' atpull'%atclone' lbin'!target/release/starship -> starship' atload'!starship_standalone' \
+    # starship/starship \
+
+## Starship installation ( deprecated, moved to brew )
+
 
 # We want to load tmux but still see the image by neofetch, so load it after 
 # zt 1c atload'load_tmux' for \

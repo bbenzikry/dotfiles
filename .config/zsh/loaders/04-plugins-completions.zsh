@@ -156,6 +156,8 @@ zt 0a light-mode for \
         # 
 
 
+    # blockf nocompletions compile'functions/*~*.zwc' \
+    #     marlonrichert/zsh-edit \
 
 zt 0b light-mode reset nocompile'!' for \
     atload'ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(__fz_zsh_completion)' \
@@ -165,8 +167,6 @@ zt 0b light-mode reset nocompile'!' for \
         bbenzikry/per-directory-history \
     compile'h*' \
         bbenzikry/history-search-multi-word \
-    blockf nocompletions compile'functions/*~*.zwc' \
-        marlonrichert/zsh-edit \
     atinit'zicompinit_fast; zicdreplay' atload'FAST_HIGHLIGHT[chroma-man]=' \
     atclone'(){local f;cd -q →*;for f (*~*.zwc){zcompile -Uz -- ${f}};}' \
     compile'.*fast*~*.zwc' nocompletions atpull'%atclone' patch"${ZINIT_PATCHES}/%PLUGIN%.patch" \
@@ -174,13 +174,15 @@ zt 0b light-mode reset nocompile'!' for \
 
 zt 0b light-mode for \
     blockf compile'lib/*f*~*.zwc' \
-        Aloxaf/fzf-tab \
-        RobSis/zsh-reentry-hook \
-    MichaelAquilina/zsh-you-should-use \
-    pick'src/bash.command-not-found' \
-    atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B"  history-substring-search-down' \
-        zsh-users/zsh-history-substring-search \
-    wakeful/zsh-packer
+        Aloxaf/fzf-tab
+
+zt 0b light-mode for \
+  RobSis/zsh-reentry-hook \
+  MichaelAquilina/zsh-you-should-use
+  
+zt 0b light-mode for \
+  atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down;' \
+  zsh-users/zsh-history-substring-search
 
 
 # Snippet completions
@@ -211,7 +213,7 @@ zt 0b as"completion" for \
 zt 0c light-mode as"null" atload'autoload -Uz $PWD/crash && crash register' for molovo/crash
 
 zt 0c light-mode null for \
-id-as'Cleanup' is-snippet atinit'_zsh_highlight_bind_widgets; _zsh_autosuggest_bind_widgets; eval "$(asdf exec direnv hook zsh)"' \
+id-as'Cleanup' is-snippet atinit'_zsh_highlight_bind_widgets; _zsh_autosuggest_bind_widgets;' \
         /dev/null
 
 # TODO: marlonrichert/zsh-autocomplete \
