@@ -46,7 +46,7 @@ yc window_shadow                on
 yc window_opacity               on
 yc window_opacity_duration      0.0
 yc active_window_opacity        1.0
-yc normal_window_opacity        0.8
+yc normal_window_opacity        0.5
 yc split_ratio                  0.50
 yc auto_balance                 off
 
