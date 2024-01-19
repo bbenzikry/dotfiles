@@ -5,6 +5,8 @@ betterthantomorrow.calva
 betterthantomorrow.calva-spritz
 bierner.emojisense
 bradlc.vscode-tailwindcss
+catppuccin.catppuccin-vsc
+catppuccin.catppuccin-vsc-icons
 dbaeumer.vscode-eslint
 dunstontc.viml
 github.copilot
@@ -16,6 +18,7 @@ jebbs.plantuml
 juanblanco.solidity
 lanza.lldb-vscode
 mattn.lisp
+naumovs.color-highlight
 randomfractalsinc.vscode-vega-viewer
 rust-lang.rust-analyzer
 scala-lang.scala
