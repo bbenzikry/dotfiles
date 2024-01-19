@@ -213,14 +213,8 @@ zt 0b as"completion" for \
 zt 0c light-mode as"null" atload'autoload -Uz $PWD/crash && crash register' for molovo/crash
 
 zt 0c light-mode null for \
-id-as'Cleanup' is-snippet atinit'_zsh_highlight_bind_widgets; _zsh_autosuggest_bind_widgets;' \
+id-as'Cleanup' is-snippet atinit'_zsh_highlight_bind_widgets; _zsh_autosuggest_bind_widgets; eval "$(direnv hook zsh)"' \
         /dev/null
 
 # TODO: marlonrichert/zsh-autocomplete \
 # zinit ice from"gh-pr" as"program"
-
-# direnv is installed via asdf plugin, to properly manage all kinds of problems with environments by shims. 
-# What currently bothers me the most is the fact that conda elements shadow clear and other items :/
-# See: 
-# as"program" from'gh-r' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" \
-# direnv/direnv \

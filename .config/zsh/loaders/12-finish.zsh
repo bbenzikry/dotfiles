@@ -13,7 +13,7 @@
 # };
 
 # A shortcut for asdf managed direnv.
-direnv() { asdf exec direnv "$@"; }
+# direnv() { asdf exec direnv "$@"; }
 
 # yield control back
 stty echo

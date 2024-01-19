@@ -11,3 +11,5 @@ fi
 
 print_in_green "sourcing ASDF\n"
 source "$ASDF_DIR/asdf.sh"
+asdf plugin-add direnv
+

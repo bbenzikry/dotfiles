@@ -88,6 +88,51 @@ yc mouse_action1                move
 yc mouse_action2                resize
 yc mouse_drop_action            swap
 
+
+#   ________  __   ___  _______  ___________  ______    __    __  ___  ___
+#  /"       )|/"| /  ")/"     "|("     _   ")/" _  "\  /" |  | "\|"  \/"  |
+# (:   \___/ (: |/   /(: ______) )__/  \\__/(: ( \___)(:  (__)  :)\   \  /
+#  \___  \   |    __/  \/    |      \\_ /    \/ \      \/      \/  \\  \/
+#   __/  \\  (// _  \  // ___)_     |.  |    //  \ _   //  __  \\  /   /
+#  /" \   :) |: | \  \(:      "|    \:  |   (:   _) \ (:  (  )  :)/   /
+# (_______/  (__|  \__)\_______)     \__|    \_______) \__|  |__/|___/
+
+#  _______       __        _______
+# |   _  "\     /""\      /"      \
+# (. |_)  :)   /    \    |:        |
+# |:     \/   /' /\  \   |_____/   )
+# (|  _  \\  //  __'  \   //      /
+# |: |_)  :)/   /  \\  \ |:  __   \
+# (_______/(___/    \___)|__|  \___)
+
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m config external_bar               all:35:0     \
+                mouse_follows_focus        off          \
+                focus_follows_mouse        off          \
+                window_zoom_persist        off          \
+                window_placement           second_child \
+                window_topmost             off          \
+                window_shadow              float        \
+                window_opacity             on           \
+                window_opacity_duration    0.2          \
+                active_window_opacity      1.0          \
+                normal_window_opacity      0.95         \
+                window_animation_duration  0.3          \
+                insert_feedback_color      0xff9dd274   \
+                split_ratio                0.50         \
+                auto_balance               off          \
+                auto_padding               on           \
+                mouse_modifier             fn           \
+                mouse_action1              move         \
+                mouse_action2              resize       \
+                mouse_drop_action          swap         \
+                                                        \
+                top_padding                14           \
+                bottom_padding             8            \
+                left_padding               8            \
+                right_padding              8            \
+                window_gap                 10
+
 #   ████████
 #  ██░░░░░░  ██████
 # ░██       ░██░░░██  ██████    █████   █████   ██████
@@ -99,8 +144,6 @@ yc mouse_drop_action            swap
 
 
 # Create spaces
-
-
 create_all_spaces(){
 yabai -m query --spaces | jq ".[].index" | xargs -I{} yabai -m space --destroy {}
 ys --create
@@ -189,6 +232,7 @@ yr app='^OpenVPN Connect$'  manage=off grid=4:4:1:1:2:2
 # yr app='^Cisco Webex'       manage=off grid=4:4:1:1:2:2
 
 
+
 #### Übersicht simple-bar support 
 
 # yc external_bar all:28:0
@@ -214,5 +258,3 @@ yr app='^OpenVPN Connect$'  manage=off grid=4:4:1:1:2:2
 # yabai -m signal --add event=window_destroyed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
 # # Refresh process widget when current window title changes
 # yabai -m signal --add event=window_title_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
-
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
