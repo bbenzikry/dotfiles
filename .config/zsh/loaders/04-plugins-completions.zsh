@@ -137,8 +137,6 @@ zt 0a light-mode for \
         OMZL::completion.zsh \
     as'completion' atpull'zinit cclear' blockf \
         zsh-users/zsh-completions \
-    as'completion' nocompile mv'*.zsh -> _git' reset \
-        felipec/git-completion \
     ver'master' atload'_zsh_autosuggest_start' \
         zsh-users/zsh-autosuggestions \
     as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras \
