@@ -71,18 +71,17 @@
     ],
     "editor.formatOnSave": true,
     "editor.fontLigatures": true,
+    // "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontSize": 14,
     "breadcrumbs.enabled": true,
     "terminal.integrated.fontSize": 18,
-    
     "editor.quickSuggestions": {
         "other": true,
         "comments": false,
         "strings": false,
         "javascript": true,
         "markdown": true
-
     },
     "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "go.formatTool": "gofmt",
@@ -122,7 +121,6 @@
     "calva.paredit.defaultKeyMap": "strict",
     "editor.semanticHighlighting.enabled": true,
     "Lua.telemetry.enable": false,
-
     "telemetry.telemtryLevel": "off",
     "go.toolsManagement.autoUpdate": true,
     "notebook.cellToolbarLocation": {
@@ -134,5 +132,9 @@
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "window.zoomLevel": -1,
-    "vsicons.dontShowNewVersionMessage": true
+    "vsicons.dontShowNewVersionMessage": true,
+    "solidity-va.codelens.dependencies.enable": false,
+    "solidity-va.codelens.report.enable": false,
+    "solidity-va.codelens.drawio.enable": false,
+    "solidity.telemetry": false
 }

@@ -1,4 +1,4 @@
-nodejs 16.10.0
+nodejs 21.6.0
 rust nightly
 clojure 1.10.2.774
 elixir 1.11.3-otp-23
@@ -14,13 +14,13 @@ deno 1.7.5
 haxe 4.2.1
 golang 1.16.3
 ruby 3.1.0-dev
-kubectl 1.20.4
+kubectl 1.21.3
 python system
 lua 5.4.2
 haskell 9.0.1
 dotty 3.0.0-RC1
-direnv 2.27.0
+direnv 2.33.0
 dotnet-core 6.0.100-preview.3.21202.5
-solidity latest
+solidity 0.8.23
 flux2 0.16.1
 istioctl 1.11.3
