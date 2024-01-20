@@ -177,3 +177,12 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true;ok
 
 
+
+###############################################################################
+print_in_purple "Hammerspoon config"
+###############################################################################
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+
+
+
+

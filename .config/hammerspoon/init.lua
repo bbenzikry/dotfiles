@@ -10,14 +10,17 @@ local stacklineOpts = {
       iconPadding = 4,
       offset = {
           y = 0,
-        --   x = 9,
+          x = 9,
       }
     },
     features = {
         clickToFocus = true,  -- default is true
     },
+    paths = {
+      yabai = "/opt/homebrew/bin/yabai"
+    }
 }
 
 -- Load stackline 
-stackline = require "stackline.stackline.stackline"
+stackline = require "stackline"
 stackline:init(stacklineOpts)

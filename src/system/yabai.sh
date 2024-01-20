@@ -43,7 +43,7 @@ ask_for_confirmation "Do you want to install Stackline for yabai? [y|N]"
   if answer_is_yes; then 
     print_in_purple "Cloning stackline to hammerspoon dir"
     mkdir -p "$XDG_CONFIG_HOME/hammerspoon"
-    git clone https://github.com/AdamWagner/stackline.git "$XDG_CONFIG_HOME/hammerspoon/stackline"
+    git clone https://github.com/bbenzikry/stackline.git "$XDG_CONFIG_HOME/hammerspoon/stackline"
     print_in_green "Cloned stackline. Make sure to add stackline to your hammerspoon config."
   fi
 fi
